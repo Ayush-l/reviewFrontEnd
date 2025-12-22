@@ -1,0 +1,118 @@
+.already-reviewed-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8fafc;
+  padding: 20px;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+.already-reviewed-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 36px 42px;
+  max-width: 460px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  animation: fadeIn 0.4s ease;
+}
+
+.icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: #e6f4ee;
+  color: #166b50;
+  font-size: 36px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.already-reviewed-card h1 {
+  font-size: 26px;
+  color: #166b50;
+  margin-bottom: 12px;
+}
+
+.message {
+  font-size: 16px;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.sub-message {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 28px;
+}
+
+.highlight {
+  font-weight: 700;
+  color: #166b50;
+}
+
+.button-group {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+/* Primary */
+.primary-btn {
+  background: #166b50;
+  color: #ffffff;
+}
+
+.primary-btn:hover {
+  background: #125840;
+  box-shadow: 0 10px 26px rgba(22, 107, 80, 0.35);
+}
+
+/* Secondary */
+.secondary-btn {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.secondary-btn:hover {
+  background: #d1d5db;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .already-reviewed-card {
+    padding: 28px 22px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}

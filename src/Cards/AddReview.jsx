@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import AlreadyReviewed from "./AlreadyReviewed";
 import "../CSS/AddReview.css";
 
 /* Interactive Star Rating */
@@ -26,6 +27,33 @@ const AddReview = () => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
+  const [canReview, setCanReview] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/review/verifyUser", {
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify({
+        authToken: `Bearer ${localStorage.getItem("jwtTokenPauriWebSite")}`,
+        cafe: {
+          id: cafeId
+        },
+        dish: {
+          name: dishName
+        }
+      })
+    }).then((res)=>{
+      if(res.status===403) throw new Error("Forbidden");
+      if(res.status===400) setCanReview(false);
+    })
+    .catch((err)=>{
+      console.error("Error verifying user:", err);
+      alert("You must be logged in to add a review.");
+      navigate("/login");
+    });
+  },[])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,39 +90,41 @@ const AddReview = () => {
   };
 
   return (
-    <div className="review-page">
-      <div className="review-card">
-        <h1>Add Review</h1>
-        <p className="subtitle">
-          Share your experience to help others
-        </p>
+    canReview?(
+      <div className="review-page">
+        <div className="review-card">
+          <h1>Add Review</h1>
+          <p className="subtitle">
+            Share your experience to help others
+          </p>
 
-        <form onSubmit={handleSubmit}>
-          <label>Rating</label>
-          <StarInput rating={rating} setRating={setRating} />
+          <form onSubmit={handleSubmit}>
+            <label>Rating</label>
+            <StarInput rating={rating} setRating={setRating} />
 
-          <label>Comment</label>
-          <textarea
-            placeholder="Write your experience here..."
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-          />
+            <label>Comment</label>
+            <textarea
+              placeholder="Write your experience here..."
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+            />
 
-          <div className="button-row">
-            <button
-              type="button"
-              className="secondary"
-              onClick={() => navigate(-1)}
-            >
-              Cancel
-            </button>
-            <button type="submit" disabled={loading}>
-              {loading ? "Submitting..." : "Submit Review"}
-            </button>
-          </div>
-        </form>
+            <div className="button-row">
+              <button
+                type="button"
+                className="secondary"
+                onClick={() => navigate(-1)}
+              >
+                Cancel
+              </button>
+              <button type="submit" disabled={loading}>
+                {loading ? "Submitting..." : "Submit Review"}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    ):<AlreadyReviewed/>
   );
 };
 

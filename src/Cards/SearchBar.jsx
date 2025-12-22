@@ -7,6 +7,7 @@ export default function SearchBar({ placeholder = "Search...", onSearch }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    console.log(query)
     if (onSearch) onSearch(query);
   };
 
