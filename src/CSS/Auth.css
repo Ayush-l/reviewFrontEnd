@@ -1,0 +1,140 @@
+/* Center the login box */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Main login card */
+.auth-card {
+  width: 400px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 35px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Title and subtitle */
+.auth-title {
+  text-align: center;
+  font-size: 28px;
+  color: #1d9970;
+  font-weight: 700;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* Input fields */
+.input-group input {
+  width: 92%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #1d9970;
+  box-shadow: 0 0 10px rgba(29, 153, 112, 0.4);
+  outline: none;
+  transform: scale(1.02);
+}
+
+/* Role selection section */
+.role-cards {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+
+.role-card {
+  flex: 1;
+  background: #f7f9f8;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 12px;
+  margin: 0 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #555;
+  font-weight: 600;
+}
+
+.role-card i {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 6px;
+  color: #1d9970;
+}
+
+.role-card:hover {
+  background: #e9f8f1;
+  transform: scale(1.05);
+}
+
+.role-card.selected {
+  border-color: #1d9970;
+  background: #e0f3ec;
+  color: #1d9970;
+}
+
+/* Login button */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background: #1d9970;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(29, 153, 112, 0.4);
+}
+
+/* Signup text */
+.signup-text {
+  text-align: center;
+  margin-top: 18px;
+  color: #555;
+}
+
+.signup-link {
+  color: #1d9970;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+

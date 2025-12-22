@@ -1,0 +1,161 @@
+/* Page */
+.manage-images-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #f2f5f4, #e9f0ee);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* Card */
+.manage-images-card {
+  width: 100%;
+  max-width: 720px;
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.manage-images-card h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #166b50;
+}
+
+.subtitle {
+  text-align: center;
+  margin: 8px 0 24px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Image Grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.image-box {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.image-box.new {
+  border: 2px dashed #166b50;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Remove Button */
+.image-box button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(220, 38, 38, 0.9);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.image-box:hover button {
+  opacity: 1;
+}
+
+/* Upload */
+.upload-btn {
+  display: block;
+  margin: 0 auto 26px;
+  padding: 12px 22px;
+  background: #e9f5f0;
+  color: #166b50;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.25s ease;
+}
+
+.upload-btn:hover {
+  background: #dff0ea;
+}
+
+/* Buttons */
+.button-row {
+  display: flex;
+  gap: 14px;
+}
+
+.button-row button {
+  flex: 1;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.button-row .primary {
+  background: #166b50;
+  color: white;
+}
+
+.button-row .primary:hover:enabled {
+  background: #125840;
+  box-shadow: 0 6px 16px rgba(22, 107, 80, 0.35);
+}
+
+.button-row .secondary {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.button-row .secondary:hover {
+  background: #d1d5db;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .manage-images-card {
+    margin: 0 16px;
+    padding: 24px;
+  }
+}

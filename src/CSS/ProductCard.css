@@ -1,0 +1,88 @@
+/* Page */
+.product-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* HERO */
+.product-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Left */
+.hero-left h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #166b50;
+  margin-bottom: 8px;
+}
+
+.address {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating-number {
+  font-size: 18px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Right (carousel wrapper) */
+.hero-right {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* DISH SECTION */
+.dish-section {
+  margin-top: 40px;
+}
+
+.dish-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #166b50;
+}
+
+/* Grid */
+.dish-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 260px;
+  margin-top: 30px;
+}
+
+.no-dishes {
+  font-size: 16px;
+  color: #6b7280;
+  text-align: center;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .product-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-left h1 {
+    font-size: 34px;
+  }
+}
+
+

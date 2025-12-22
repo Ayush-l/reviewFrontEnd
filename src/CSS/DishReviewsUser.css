@@ -1,0 +1,124 @@
+.reviews-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* Header */
+.reviews-header {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: none;
+  border: none;
+  color: #166b50;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reviews-header h1 {
+  font-size: 34px;
+  color: #166b50;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #6b7280;
+}
+
+/* Reviews */
+.no-reviews {
+  text-align: center;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.reviews-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.review-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 22px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.review-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #e5e7eb;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Add review */
+.add-review-btn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  background: #166b50;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.add-review-btn:hover {
+  background: #125840;
+  box-shadow: 0 8px 22px rgba(22, 107, 80, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .reviews-header h1 {
+    font-size: 26px;
+  }
+
+  .review-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
