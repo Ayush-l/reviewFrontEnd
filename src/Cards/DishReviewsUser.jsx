@@ -13,7 +13,7 @@ const DishReviews = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:8080/getcafe/reviews/${dishName}/${cafeId}/${page}`
+      `https://reviewbackend-990d.onrender.com/getcafe/reviews/${dishName}/${cafeId}/${page}`
     )
       .then((res) => res.json())
       .then((res)=>{

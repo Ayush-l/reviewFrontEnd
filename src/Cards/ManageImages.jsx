@@ -15,7 +15,7 @@ const ManageImages = () => {
 
   /* Fetch cafe images */
   useEffect(() => {
-    fetch("http://localhost:8080/auth/cafe/getCafe", {
+    fetch("https://reviewbackend-990d.onrender.com/auth/cafe/getCafe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -71,7 +71,7 @@ const ManageImages = () => {
       const updatedImages = [...existingImages, ...uploadedUrls];
 
       const res = await fetch(
-        "http://localhost:8080/file/uploadcafeimage",
+        "https://reviewbackend-990d.onrender.com/file/uploadcafeimage",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

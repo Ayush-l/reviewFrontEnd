@@ -13,7 +13,7 @@ export default function ProductCard() {
   const [dishes, setDishes] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/getcafe/get/${id}`)
+    fetch(`https://reviewbackend-990d.onrender.com/getcafe/get/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch cafe");
         return res.json();

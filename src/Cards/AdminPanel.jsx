@@ -12,7 +12,7 @@ const AdminPanel = () => {
 
   //  FETCH EXISTING DISHES
   useEffect(() => {
-    fetch("http://localhost:8080/auth/dish/get", {
+    fetch("https://reviewbackend-990d.onrender.com/auth/dish/get", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -72,7 +72,7 @@ const AdminPanel = () => {
       setDishes([...dishes, { name: newDish.name, imageUrl: url }]);
 
       // send to backend
-      fetch("http://localhost:8080/auth/dish/create", {
+      fetch("https://reviewbackend-990d.onrender.com/auth/dish/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

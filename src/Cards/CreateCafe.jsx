@@ -11,7 +11,7 @@ const CreateCafe = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:8080/auth/cafe/create", {
+      const res = await fetch("https://reviewbackend-990d.onrender.com/auth/cafe/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

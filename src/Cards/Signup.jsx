@@ -37,14 +37,14 @@ const Signup = () => {
       role: "user",
     };
 
-    fetch("http://localhost:8080/create/createuser", {
+    fetch("https://reviewbackend-990d.onrender.com/create/createuser", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) {
+        if (data) {
           alert("Signup successful!");
           navigate("/login");
         } else {

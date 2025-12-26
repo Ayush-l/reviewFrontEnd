@@ -18,8 +18,9 @@ const LeaderBoard = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:8080/getcafe/getall/${currPage}`)
+    fetch(`https://reviewbackend-990d.onrender.com/getcafe/getall/${currPage}`)
       .then((res) => {
+        console.log(res)
         if (!res.ok) throw new Error("Failed to fetch cafes");
         return res.json();
       })
@@ -27,7 +28,7 @@ const LeaderBoard = () => {
         setCafes(page.content);
         setTotalPages(page.totalPages);
       })
-      .catch(() => navigate("/notfound"));
+      // .catch(() => navigate("/notfound"));
   }, [currPage]);
 
   return (

@@ -11,7 +11,7 @@ const EditCafeName = () => {
 
   useEffect(() => {
     // Fetch current cafe name
-    fetch("http://localhost:8080/auth/cafe/getCafe", {
+    fetch("https://reviewbackend-990d.onrender.com/auth/cafe/getCafe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

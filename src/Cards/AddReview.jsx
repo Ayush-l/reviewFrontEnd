@@ -30,7 +30,7 @@ const AddReview = () => {
   const [canReview, setCanReview] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8080/review/verifyUser", {
+    fetch("https://reviewbackend-990d.onrender.com/review/verifyUser", {
       method:"POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const AddReview = () => {
     e.preventDefault();
     try{
       setLoading(true);
-      const res=await fetch("http://localhost:8080/review/addReview", {
+      const res=await fetch("https://reviewbackend-990d.onrender.com/review/addReview", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -14,7 +14,7 @@ const AddDishes = () => {
   /* Fetch cafe dishes + predefined dishes */
   useEffect(() => {
     // Fetch cafe
-    fetch("http://localhost:8080/auth/cafe/getCafe", {
+    fetch("https://reviewbackend-990d.onrender.com/auth/cafe/getCafe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -31,7 +31,7 @@ const AddDishes = () => {
     });
 
     // Fetch predefined dishes
-    fetch("http://localhost:8080/auth/dish/get", {
+    fetch("https://reviewbackend-990d.onrender.com/auth/dish/get", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     })
@@ -60,7 +60,7 @@ const AddDishes = () => {
     try {
         for(let i of selected){
             console.log(i);
-            const res = await fetch("http://localhost:8080/auth/cafe/adddish", {
+            const res = await fetch("https://reviewbackend-990d.onrender.com/auth/cafe/adddish", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({

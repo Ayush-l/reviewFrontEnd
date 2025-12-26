@@ -16,7 +16,7 @@ export default function SearchBar({ placeholder = "Search cafes..." }) {
   }
 
   const delayDebounce = setTimeout(() => {
-    fetch(`http://localhost:8080/getcafe/search/${query}/${page}`)
+    fetch(`https://reviewbackend-990d.onrender.com/getcafe/search/${query}/${page}`)
       .then((res) => res.json())
       .then((data) => {
         setResults(data.content || []);
