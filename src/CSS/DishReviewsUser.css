@@ -126,9 +126,9 @@ body {
 /* Add review */
 .add-review-btn {
   position: fixed;
-  left: 50%;
+  left: 45%;
+  width:10%;
   transform: translateX(-50%);
-  bottom: 24px;
   z-index: 9999;
   padding: 12px 22px;
   border-radius: 999px;
