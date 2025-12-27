@@ -73,7 +73,7 @@ export default function ProductCard() {
                     idDish={dish.name}
                     id={product.id}
                     style={{ margin: "20px" }}
-                    reviews={{count}}
+                    reviews={count}
                   />
                 </div>
               );
