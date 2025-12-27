@@ -63,7 +63,7 @@ const DishReviewsPage = () => {
 
               {/* Reviews */}
               <div className="reviews-list">
-                {dish.reviews?.length === 0 ? (
+                {dish.reviews && dish.reviews?.length === 0 ? (
                   <p className="no-reviews">No reviews yet</p>
                 ) : (
                   dish.reviews.map((r, i) => (
