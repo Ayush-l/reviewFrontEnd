@@ -4,37 +4,39 @@
 }
 
 .dish-card {
-  background: linear-gradient(180deg, #ffffff, #f1fffb);
+  background: #ffffff;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba(18, 184, 134, 0.25);
+  box-shadow: 0 10px 26px rgba(18, 184, 134, 0.22);
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
   display: flex;
   flex-direction: column;
   position: relative;
-  height: 420px;
+  height: 372.8px;
+}
+
+.dish-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  box-shadow: inset 0 0 0 1px rgba(18, 184, 134, 0.12);
+  pointer-events: none;
 }
 
 .dish-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 22px 50px rgba(18, 184, 134, 0.45);
+  box-shadow: 0 22px 48px rgba(18, 184, 134, 0.38);
 }
 
 /* Image */
 .dish-image-wrapper {
   width: 100%;
-  height: 240px;
+  height: 215px; /* increased height */
   overflow: hidden;
-  position: relative;
 }
 
-.dish-image-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.25));
-}
 
 .dish-image-wrapper img {
   width: 100%;
@@ -44,88 +46,89 @@
 }
 
 .dish-card:hover img {
-  transform: scale(1.12);
+  transform: scale(1.1);
 }
 
-/* Info */
+/* Content */
 .dish-info {
-  flex: 1;
-  padding: 22px 20px 24px;
+  padding: 18px 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
+  flex-grow: 1;
+  justify-content: center;
 }
 
-/* Name */
 .dish-name {
-  margin: 6px 0 0;
-  font-size: 22px;
-  font-weight: 700;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
   color: #1d9970;
   text-align: center;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.3px;
 }
 
-/* Rating */
 .dish-rating {
   display: flex;
   justify-content: center;
-  margin-top: 8px;
-  transform: scale(1.15);
+  margin-top: 2px;
 }
 
 /* Button */
 .see-reviews-btn {
-  padding: 10px 22px;
+  margin-top: 10px;
+  padding: 9px 22px;
   border-radius: 999px;
   border: none;
   background: linear-gradient(135deg, #ff922b, #ff6b00);
   color: #ffffff;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
-  letter-spacing: 0.3px;
-  box-shadow: 0 10px 24px rgba(255, 146, 43, 0.45);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 6px 14px rgba(255, 146, 43, 0.35);
 }
 
 .see-reviews-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(255, 146, 43, 0.6);
+  box-shadow: 0 12px 26px rgba(255, 146, 43, 0.5);
 }
 
 .see-reviews-btn:active {
   transform: translateY(0);
-  box-shadow: 0 8px 18px rgba(255, 146, 43, 0.4);
+  box-shadow: 0 6px 16px rgba(255, 146, 43, 0.35);
 }
 
-/* Glow ring */
-.dish-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  box-shadow: inset 0 0 0 1px rgba(18, 184, 134, 0.35);
-  pointer-events: none;
+/* Entry animation */
+.dish-card {
+  animation: fadeUp 0.45s ease;
 }
 
-/* Mobile */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
 @media (max-width: 480px) {
-  .dish-card {
-    height: 380px;
+  .dish-image-wrapper {
+    height: 190px; /* increased for mobile too */
   }
 
-  .dish-image-wrapper {
-    height: 210px;
-  }
 
   .dish-name {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .see-reviews-btn {
-    font-size: 13px;
-    padding: 9px 20px;
+    padding: 8px 18px;
+    font-size: 12px;
   }
 }
