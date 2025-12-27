@@ -100,12 +100,14 @@ const CafeDashboard = () => {
               <h4>{dish.name}</h4>
               <StarRating rating={dish.rating!==undefined? dish.rating:0} />
               <p>{dish.ratingCount[0]+dish.ratingCount[1]+dish.ratingCount[2]+dish.ratingCount[3]+dish.ratingCount[4]}{(dish.ratingCount[0]+dish.ratingCount[1]+dish.ratingCount[2]+dish.ratingCount[3]+dish.ratingCount[4]>1)?" reviews":" review"}</p>
-              <button
-                className="reviews-btn"
-                onClick={() => navigate(`/dishreviews/${cafe.id}/${dish.name}`)}
-              >
-                View Reviews
-              </button>
+              {dish.ratingCount[0]+dish.ratingCount[1]+dish.ratingCount[2]+dish.ratingCount[3]+dish.ratingCount[4]>0
+               &&
+                (<button
+                  className="reviews-btn"
+                  onClick={() => navigate(`/dishreviews/${cafe.id}/${dish.name}`)}
+                >
+                  {dish.ratingCount[0]+dish.ratingCount[1]+dish.ratingCount[2]+dish.ratingCount[3]+dish.ratingCount[4]>1?"View Reviews":"View Review"}
+              </button>)}
             </div>
           ))}
         </div>
