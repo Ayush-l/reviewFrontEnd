@@ -62,17 +62,51 @@ export default function ProductCard() {
           <p className="no-dishes">No dishes added yet</p>
         ) : (
           <div className="dish-grid" style={{gap:"26px",gridTemplateColumns:"repeat(auto-fill, minmax(240px, 1fr))",alignContent:"space-between"}}>
-            {dishes && dishes.map((dish) => (
-              <DishCard2
-                key={dish.name}
-                src={dish.url}
-                name={dish.name}
-                rating={dish.rating}
-                idDish={dish.name}
-                id={product.id}
-                style={{margin:"20px"}}
-              />
-            ))}
+            {dishes.map((dish) => {
+              const count =
+                dish.ratingCount?.reduce((a, b) => a + b, 0) || 0;
+
+              return (
+                <div key={dish.name} style={{ position: "relative" }}>
+                  <DishCard2
+                    src={dish.url}
+                    name={dish.name}
+                    rating={dish.rating}
+                    idDish={dish.name}
+                    id={product.id}
+                    style={{ margin: "20px" }}
+                  />
+
+                  {/* Review count + button */}
+                  <div style={{ textAlign: "center", marginTop: "6px" }}>
+                    <p style={{ fontSize: "13px", color: "#868e96", margin: "4px 0" }}>
+                      {count} {count === 1 ? "review" : "reviews"}
+                    </p>
+
+                    {count > 0 && (
+                      <button
+                        style={{
+                          padding: "6px 14px",
+                          borderRadius: "999px",
+                          border: "none",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                          background: "linear-gradient(135deg, #ff922b, #ff6b00)",
+                          color: "white",
+                          cursor: "pointer"
+                        }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/dishreviews/${product.id}/${dish.name}`);
+                        }}
+                      >
+                        {count === 1 ? "View Review" : "View Reviews"}
+                      </button>
+                    )}
+                  </div>
+                </div>
+              );
+            })} 
           </div>
         )}
       </section>

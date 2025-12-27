@@ -16,6 +16,7 @@ const DishCard2 = ({ src, name, rating, idDish, id }) => {
   };
 
   return (
+    
     <div className="dish-card" onClick={goToDish}>
       <div className="dish-image-wrapper">
         <img src={src} alt={name} />
