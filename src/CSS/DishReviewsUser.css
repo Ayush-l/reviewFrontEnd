@@ -18,7 +18,8 @@ body {
 .reviews-header {
   text-align: center;
   margin-bottom: 28px;
-  position: relative;
+  position: absolute;
+  left:35px;
 }
 
 .reviews-header h1 {
