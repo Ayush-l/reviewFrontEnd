@@ -54,6 +54,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  margin-left: 50%;
 }
 
 .review-card {
