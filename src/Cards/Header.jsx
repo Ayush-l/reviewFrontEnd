@@ -8,6 +8,7 @@ const Header = () => {
         <h1>Restaurant / Cafe Review Website — Pauri</h1>
         <p>Discover • Review • Share your food experience</p>
       </div>
+      <button className="logout-btn" onClick={handleLogout}>Logout</button>
     </header>
   );
 };

@@ -92,7 +92,6 @@ const AdminPanel = () => {
     <div className="admin-container">
       <header className="admin-header">
         <h1>Admin Dashboard</h1>
-        <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </header>
 
       {dishes.length !== 0 && (
