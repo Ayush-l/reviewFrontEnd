@@ -43,7 +43,6 @@ const AddReview = () => {
         if (res.status === 400) setCanReview(false);
       })
       .catch((err) => {
-        console.error("Error verifying user:", err);
         alert("You must be logged in to add a review.");
         navigate("/login");
       });
@@ -70,7 +69,8 @@ const AddReview = () => {
       alert("Review submitted successfully!");
       navigate(-1);
     } catch (err) {
-      console.error("Error submitting review:", err);
+      navigate("/login");
+      localStorage.removeItem("jwtTokenPauriWebSite");
     } finally {
       setLoading(false);
     }

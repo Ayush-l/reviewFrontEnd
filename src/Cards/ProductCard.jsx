@@ -15,18 +15,17 @@ export default function ProductCard() {
   useEffect(() => {
     fetch(`https://reviewbackend-990d.onrender.com/getcafe/get/${id}`)
       .then((res) => {
-        console.log(res)
         if (!res.ok) throw new Error("Failed to fetch cafe");
         return res.json();
       })
       .then((data) => {
-        console.log(data)
         setProduct(data);
         setDishes(data.dishes || []);
         setRestaurantName(data.name);
       })
       .catch((error) => {
-        console.error("Error fetching cafe:", error);
+        Navigate("/login");
+        localStorage.removeItem("jwtTokenPauriWebSite");
       });
   }, [id]);
 

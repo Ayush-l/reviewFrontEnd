@@ -23,7 +23,10 @@ const DishReviews = () => {
           setPage(res.totalPages - 1);
         }
       })
-      .catch(console.error);
+      .catch(() =>{
+        navigate("/login");
+        localStorage.removeItem("jwtTokenPauriWebSite");
+      });
   }, [cafeId, dishName, page]);
 
   return (

@@ -20,17 +20,17 @@ const LeaderBoard = () => {
   useEffect(() => {
     fetch(`https://reviewbackend-990d.onrender.com/getcafe/getall/${currPage}`)
       .then((res) => {
-        console.log(res.ok)
-        console.log(res.ok)
         if (!res.ok) throw new Error("Failed to fetch cafes");
         return res.json();
       })
       .then((page) => {
-        console.log(page)
         setCafes(page.content);
         setTotalPages(page.totalPages);
       })
-      .catch(() => navigate("/login"));
+      .catch(() =>{
+        navigate("/login");
+        localStorage.removeItem("jwtTokenPauriWebSite");
+      });
   }, [currPage]);
 
   return (

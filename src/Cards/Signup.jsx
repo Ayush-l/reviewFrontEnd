@@ -52,7 +52,10 @@ const Signup = () => {
           navigate("/login");
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) =>{
+        navigate("/login");
+        localStorage.removeItem("jwtTokenPauriWebSite");
+      });
   };
 
   return (

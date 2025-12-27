@@ -12,7 +12,6 @@ const DishCard2 = ({ src, name, rating, idDish, id }) => {
 
   const goToReviews = (e) => {
     e.stopPropagation();
-    console.log("Navigating to reviews for dish:", idDish, "in cafe:", id);
     navigate(`/dishreviews/${id}/${idDish}`);
   };
 

@@ -43,7 +43,6 @@ const Login = () => {
         else navigate("/");
       })
       .catch((err) => {
-        console.error(err);
         alert("Login failed. Please check your credentials.");
       });
   };

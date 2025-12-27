@@ -29,7 +29,10 @@ const AdminPanel = () => {
         }));
         setDishes(dishesData);
       })
-      .catch((err) => console.log(err));
+      .catch((err) =>{
+        navigate("/login");
+        localStorage.removeItem("jwtTokenPauriWebSite");
+      });
   }, []);
 
   useEffect(() => {

@@ -81,7 +81,6 @@ const ManageImages = () => {
 
       navigate("/cafedashboard");
     } catch (err) {
-      console.error(err);
       alert("Failed to update images");
     } finally {
       setLoading(false);

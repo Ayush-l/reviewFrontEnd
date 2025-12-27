@@ -19,8 +19,6 @@ const AddCafe = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Cafe Name:", cafeName);
-    console.log("Images:", images);
     alert("Form submitted!");
   };
 

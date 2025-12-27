@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../CSS/SearchBar.css";
 import { Search, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar({ placeholder = "Search cafes..." }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!query.trim()) {
@@ -22,7 +24,10 @@ export default function SearchBar({ placeholder = "Search cafes..." }) {
           setResults(data.content || []);
           setTotalPages(data.totalPages || 0);
         })
-        .catch(console.error);
+        .catch(()=>{
+          navigate("/login");
+          localStorage.removeItem("jwtTokenPauriWebSite");
+        });
     }, 400);
 
     return () => clearTimeout(delayDebounce);

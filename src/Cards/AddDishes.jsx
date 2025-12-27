@@ -71,7 +71,6 @@ const AddDishes = () => {
         navigate("/cafedashboard");
       }
     } catch (err) {
-      console.error(err);
       alert("Something went wrong");
     } finally {
       setLoading(false);

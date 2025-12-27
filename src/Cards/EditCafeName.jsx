@@ -48,7 +48,6 @@ const EditCafeName = () => {
 
       navigate("/cafedashboard");
     } catch (err) {
-      console.error(err);
       alert("Failed to update cafe name");
     } finally {
       setLoading(false);
