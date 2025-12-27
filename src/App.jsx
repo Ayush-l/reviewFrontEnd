@@ -7,7 +7,6 @@ import { Route, Routes } from 'react-router-dom'
 import HomePage from './Cards/HomePage'
 import NotFound from './Cards/NotFound'
 import ProductCard from './Cards/ProductCard'
-import Reviews from './Cards/Reviews'
 import SearchBar from './Cards/SearchBar'
 import Signup from "./Cards/Signup"
 import Login from './Cards/Login'
