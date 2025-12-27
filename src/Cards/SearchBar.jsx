@@ -63,7 +63,7 @@ export default function SearchBar({ placeholder = "Search cafes..." }) {
             <>
               <div className="results-grid">
                 {results.map((cafe) => (
-                  <div key={cafe.id} className="result-card">
+                  <div key={cafe.id} className="result-card" onClick={() => window.location.href=`/card/${cafe.id}`}>
                     <img src={cafe.image} alt={cafe.name} />
 
                     <div className="card-content">
