@@ -75,15 +75,12 @@ const DishReviewsUser = () => {
           </button>
         </div>
       )}
-
-      {localStorage.getItem("role") === "user" && (
-        <button
-          className="add-review-btn"
-          onClick={() => navigate(`/add-review/${cafeId}/${dishName}`)}
-        >
-          Add Review
-        </button>
-      )}
+      <button
+        className="add-review-btn"
+        onClick={() => navigate(`/add-review/${cafeId}/${dishName}`)}
+      >
+        Add Review
+      </button>
     </div>
   );
 };
