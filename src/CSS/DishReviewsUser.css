@@ -54,8 +54,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-left: auto;
-  margin-right: auto;
+  width:100%;
   max-width: 640px;
 }
 
