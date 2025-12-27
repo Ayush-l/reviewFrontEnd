@@ -27,7 +27,7 @@ const DishReviewsPage = () => {
       <h1 className="page-title">Dish Reviews</h1>
 
       <div className="dishes-grid">
-        {dishes.map((dish, idx) => {
+        {dishes && dishes.map((dish, idx) => {
           const total = totalReviews(dish.ratingCount);
 
           return (
