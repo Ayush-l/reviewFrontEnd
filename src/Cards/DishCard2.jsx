@@ -25,12 +25,9 @@ const DishCard2 = ({ src, name, rating, idDish, id ,reviews}) => {
         <div className="dish-rating">
           <StarRating onRate={rating} readOnly />
         </div>
-
-        {reviews > 0 && (
-          <button className="add-reviews-btn" onClick={goToReviews}>
-            Add Review
-          </button>
-        )}
+        <button className="add-reviews-btn" onClick={goToReviews}>
+          Add Review
+        </button>
       </div>
     </div>
   );
