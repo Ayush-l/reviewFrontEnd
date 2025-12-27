@@ -29,22 +29,22 @@ function App() {
       <Header/>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/product/LeaderBoard/:id" element={<LeaderBoard />} />
-          <Route path="/addCafe" element={<AddCafe />} />
-          <Route path="/cafeDashBoard" element={<CafeDashboard />} />
-          <Route path="/product/searchMenu" element={<SearchBar />} />
+          <Route path="/product/leaderboard/:id" element={<LeaderBoard />} />
+          <Route path="/product/leaderboard/card/:id/:dishid" element={<Reviews />} />
+          <Route path="/product/searchmenu" element={<SearchBar />} />
           <Route path="/card/:id" element={<ProductCard />} />
-          <Route path="/dishReviews/:id" element={<DishReviewsPage />} />
-          <Route path="/product/LeaderBoard/card/:id/:dishId" element={<Reviews/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/Signup" element={<Signup/>} />
-          <Route path="/adminPanel" element={<AdminPanel/>} />
-          <Route path="/createCafe" element={<CreateCafe/>} />
-          <Route path="/edit-cafe-name" element={<EditCafeName/>} />
-          <Route path="/manage-images" element={<ManageImages/>} />
-          <Route path="/add-dishes" element={<AddDishes/>} />
-          <Route path="/add-review/:cafeId/:dishName" element={<AddReview/>} />
-          <Route path="/dishReviews/:cafeId/:dishName" element={<DishReviewsUser/>} />
+          <Route path="/dishreviews/:id" element={<DishReviewsPage />} />
+          <Route path="/dishreviews/:cafeId/:dishName" element={<DishReviewsUser />} />
+          <Route path="/add-review/:cafeId/:dishName" element={<AddReview />} />
+          <Route path="/addcafe" element={<AddCafe />} />
+          <Route path="/cafedashboard" element={<CafeDashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/adminpanel" element={<AdminPanel />} />
+          <Route path="/createcafe" element={<CreateCafe />} />
+          <Route path="/edit-cafe-name" element={<EditCafeName />} />
+          <Route path="/manage-images" element={<ManageImages />} />
+          <Route path="/add-dishes" element={<AddDishes />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       <Footer/>
