@@ -6,6 +6,7 @@ import "../CSS/DishCard2.css";
 const DishCard2 = ({ src, name, rating, idDish, id ,reviews}) => {
   const navigate = useNavigate();
   console.log(reviews)
+  console.log(reviews>0)
 
   const goToDish = () => {
     navigate(`${idDish}`);
@@ -30,9 +31,11 @@ const DishCard2 = ({ src, name, rating, idDish, id ,reviews}) => {
           <StarRating onRate={rating} readOnly />
         </div>
 
-        {reviews>0 && <button className="see-reviews-btn" onClick={goToReviews}>
-          {reviews === 1 ? "See Review" : "See Reviews"}
-        </button>}
+        {reviews > 0 && (
+          <button className="see-reviews-btn" onClick={goToReviews}>
+            {reviews === 1 ? "See Review" : "See Reviews"}
+          </button>
+        )}
       </div>
     </div>
   );
