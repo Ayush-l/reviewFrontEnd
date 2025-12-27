@@ -5,6 +5,7 @@ import "../CSS/DishCard2.css";
 
 const DishCard2 = ({ src, name, rating, idDish, id ,reviews}) => {
   const navigate = useNavigate();
+  console.log(reviews)
 
   const goToDish = () => {
     navigate(`${idDish}`);
