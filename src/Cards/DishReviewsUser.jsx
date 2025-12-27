@@ -44,7 +44,7 @@ const DishReviews = () => {
             <div key={idx} className="review-card">
               <div className="review-top">
                 <strong>
-                  {review.user != null
+                  {review.user !== null
                     ? review.user.firstName + " " + review.user.lastName
                     : "Anonymous"}
                 </strong>
