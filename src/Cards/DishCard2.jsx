@@ -3,7 +3,7 @@ import StarRating from "./StarRating";
 import { useNavigate } from "react-router-dom";
 import "../CSS/DishCard2.css";
 
-const DishCard2 = ({ src, name, rating, idDish, id }) => {
+const DishCard2 = ({ src, name, rating, idDish, id ,reviews}) => {
   const navigate = useNavigate();
 
   const goToDish = () => {
@@ -29,9 +29,9 @@ const DishCard2 = ({ src, name, rating, idDish, id }) => {
           <StarRating onRate={rating} readOnly />
         </div>
 
-        <button className="see-reviews-btn" onClick={goToReviews}>
-          See Reviews
-        </button>
+        {reviews>0 && <button className="see-reviews-btn" onClick={goToReviews}>
+          {reviews === 1 ? "See Review" : "See Reviews"}
+        </button>}
       </div>
     </div>
   );
