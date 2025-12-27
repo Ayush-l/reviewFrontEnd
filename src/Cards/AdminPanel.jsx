@@ -81,12 +81,6 @@ const AdminPanel = () => {
     setDishes(updated);
   };
 
-  const handleLogout = () => {
-    alert("Logged out!");
-    localStorage.removeItem("jwtTokenPauriWebSite");
-    localStorage.removeItem("role");
-    navigate("/login");
-  };
 
   return (
     <div className="admin-container">
