@@ -30,7 +30,7 @@ export default function ProductCard() {
       });
   }, [id]);
 
-  console.log(product)
+  console.log(product.cafeRating)
   if (!product) return null;
 
   return (
