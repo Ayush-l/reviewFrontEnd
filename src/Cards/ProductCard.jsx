@@ -30,7 +30,12 @@ export default function ProductCard() {
       });
   }, [id]);
 
-  if (!product) return null;
+  if (!product) {
+    return <p style={{ textAlign: "center", marginTop: "40px" }}>
+      Loading cafe details…
+    </p>;
+  }
+
 
   return (
     <div className="product-page">

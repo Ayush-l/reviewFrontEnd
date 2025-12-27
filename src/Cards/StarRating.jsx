@@ -9,6 +9,7 @@ export default function StarRating({
   size = "md"
 }) {
   const [hover, setHover] = useState(0);
+  if(onRate==NULL||onRate==undefined||onRate>5||onRate<0) onRate=0;
 
   return (
     <div className={`star-rating ${size} ${readOnly ? "readonly" : ""}`}>
