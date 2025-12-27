@@ -37,6 +37,7 @@ const CafeDashboard = () => {
       .then((res) => res.json())
       .then((cafe)=>{
         setCafe(cafe);
+        console.log(cafe)
         let reviewsCount = 0;
         for(let cafeDish of cafe.dishes){
           for(let count of cafeDish.ratingCount) reviewsCount += count;
