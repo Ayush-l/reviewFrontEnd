@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  background: linear-gradient(135deg, #f1fdf9, #e6fcf5);
 }
 
 .reviews-page {
@@ -25,12 +25,14 @@ body {
   margin: 0;
   font-size: 28px;
   font-weight: 600;
-  color: #343a40;
+  background: linear-gradient(135deg, #1d9970, #12b886);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
   font-size: 14px;
-  color: #868e96;
+  color: #339af0;
   margin-top: 4px;
 }
 
@@ -40,7 +42,7 @@ body {
   top: 0;
   background: none;
   border: none;
-  color: #ff922b;
+  color: #1d9970;
   font-size: 14px;
   cursor: pointer;
   font-weight: 500;
@@ -56,8 +58,8 @@ body {
 .review-card {
   background: #ffffff;
   padding: 16px 18px;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(18, 184, 134, 0.22);
   animation: fadeUp 0.4s ease;
 }
 
@@ -70,7 +72,7 @@ body {
 
 .review-top strong {
   font-size: 14px;
-  color: #343a40;
+  color: #1d9970;
 }
 
 .comment {
@@ -83,7 +85,7 @@ body {
 .no-reviews {
   text-align: center;
   font-size: 14px;
-  color: #adb5bd;
+  color: #339af0;
   margin-top: 20px;
 }
 
@@ -100,9 +102,14 @@ body {
   padding: 6px 14px;
   border-radius: 999px;
   border: none;
-  background: #e9ecef;
+  background: #e6fcf5;
   font-size: 13px;
   cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #d3f9d8;
 }
 
 .pagination button:disabled {
@@ -112,7 +119,7 @@ body {
 
 .pagination span {
   font-size: 13px;
-  color: #495057;
+  color: #339af0;
 }
 
 /* Add review */
@@ -128,13 +135,13 @@ body {
   background: linear-gradient(135deg, #ff922b, #ff6b00);
   color: white;
   cursor: pointer;
-  box-shadow: 0 10px 24px rgba(255, 146, 43, 0.45);
+  box-shadow: 0 12px 28px rgba(255, 146, 43, 0.5);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .add-review-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(255, 146, 43, 0.6);
+  box-shadow: 0 16px 36px rgba(255, 146, 43, 0.65);
 }
 
 /* Animation */

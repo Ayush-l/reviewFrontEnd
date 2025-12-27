@@ -20,7 +20,9 @@ body {
 .home-title {
   font-size: 40px;
   font-weight: 700;
-  color: #343a40;
+  background: linear-gradient(135deg, #1d9970, #12b886);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 6px;
 }
 

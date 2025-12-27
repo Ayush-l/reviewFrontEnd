@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  background: linear-gradient(135deg, #f1fdf9, #e6fcf5);
 }
 
 .already-reviewed-page {
@@ -19,18 +19,18 @@ body {
 .already-reviewed-card {
   background: #ffffff;
   padding: 40px 36px;
-  border-radius: 20px;
+  border-radius: 22px;
   max-width: 480px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 22px 55px rgba(18, 184, 134, 0.22);
   animation: fadeScale 0.6s ease;
 }
 
 .icon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, #51cf66, #2f9e44);
+  background: linear-gradient(135deg, #1d9970, #12b886);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -38,19 +38,21 @@ body {
   font-size: 32px;
   color: #fff;
   margin: 0 auto 20px;
-  box-shadow: 0 8px 20px rgba(47, 158, 68, 0.4);
+  box-shadow: 0 10px 24px rgba(18, 184, 134, 0.45);
 }
 
 .already-reviewed-card h1 {
   font-size: 26px;
   font-weight: 600;
   margin-bottom: 14px;
-  color: #343a40;
+  background: linear-gradient(135deg, #1d9970, #12b886);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .message {
   font-size: 15px;
-  color: #495057;
+  color: #1d9970;
   margin-bottom: 6px;
 }
 
@@ -61,7 +63,7 @@ body {
 
 .sub-message {
   font-size: 13px;
-  color: #868e96;
+  color: #339af0;
   margin-bottom: 26px;
 }
 
@@ -71,9 +73,9 @@ body {
 }
 
 .primary-btn {
-  background: linear-gradient(135deg, #ff922b, #ff6b00);
+  background: linear-gradient(135deg, #1d9970, #12b886);
   color: #fff;
-  padding: 12px 26px;
+  padding: 12px 28px;
   border-radius: 999px;
   border: none;
   font-size: 14px;
@@ -84,12 +86,12 @@ body {
 
 .primary-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(255, 146, 43, 0.45);
+  box-shadow: 0 12px 26px rgba(18, 184, 134, 0.45);
 }
 
 .primary-btn:active {
   transform: translateY(0);
-  box-shadow: 0 6px 14px rgba(255, 146, 43, 0.3);
+  box-shadow: 0 7px 18px rgba(18, 184, 134, 0.35);
 }
 
 @keyframes fadeScale {

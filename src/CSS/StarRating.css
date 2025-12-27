@@ -20,7 +20,7 @@
 
 .star.filled {
   color: #ff922b;
-  text-shadow: 0 0 6px rgba(255, 146, 43, 0.6);
+  text-shadow: 0 0 6px rgba(29, 153, 112, 0.6);
 }
 
 .star-rating:not(.readonly) .star:hover {

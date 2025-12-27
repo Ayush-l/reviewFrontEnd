@@ -33,7 +33,7 @@ body {
 }
 
 .search-input-wrapper:focus-within {
-  box-shadow: 0 10px 30px rgba(255, 146, 43, 0.4);
+  box-shadow: 0 10px 30px rgba(29, 153, 112, 0.4);
 }
 
 .search-icon {
@@ -54,7 +54,7 @@ body {
   border: none;
   font-size: 14px;
   font-weight: 600;
-  background: linear-gradient(135deg, #ff922b, #ff6b00);
+  background: linear-gradient(135deg, #1d9970, #12b886);
   color: white;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -62,7 +62,7 @@ body {
 
 .search-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(255, 146, 43, 0.45);
+  box-shadow: 0 10px 24px rgba(29, 153, 112, 0.45);
 }
 
 /* Results */
@@ -108,7 +108,7 @@ body {
 .card-content h3 {
   margin: 0;
   font-size: 18px;
-  color: #343a40;
+  color: #1d9970;
 }
 
 .address {

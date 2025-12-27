@@ -136,13 +136,13 @@ body {
 }
 
 .primary {
-  background: linear-gradient(135deg, #ff922b, #ff6b00);
+  background: linear-gradient(135deg, #1d9970, #12b886);
   color: white;
 }
 
 .primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(255, 146, 43, 0.45);
+  box-shadow: 0 10px 24px rgba(18, 184, 134, 0.45);
 }
 
 button:disabled {

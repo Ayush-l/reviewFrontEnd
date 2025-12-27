@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  background: linear-gradient(135deg, #f1fdf9, #e6fcf5);
 }
 
 .add-dishes-page {
@@ -21,21 +21,23 @@ body {
   max-width: 1100px;
   background: #ffffff;
   padding: 32px;
-  border-radius: 18px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(18, 184, 134, 0.18);
   animation: fadeIn 0.6s ease;
 }
 
 .add-dishes-card h1 {
   margin: 0;
   font-size: 28px;
-  color: #343a40;
+  background: linear-gradient(135deg, #1d9970, #12b886);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
   margin-top: 6px;
   margin-bottom: 22px;
-  color: #6c757d;
+  color: #339af0;
   font-size: 15px;
 }
 
@@ -47,25 +49,26 @@ body {
 
 .dish-card {
   position: relative;
-  background: #f8f9fa;
-  border-radius: 14px;
+  background: #f1fdf9;
+  border-radius: 16px;
   padding: 12px;
   cursor: pointer;
   text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.2s ease;
+  box-shadow: 0 6px 16px rgba(18, 184, 134, 0.18);
+  border: 2px solid transparent;
 }
 
 .dish-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 14px 28px rgba(18, 184, 134, 0.35);
 }
 
 .dish-card img {
   width: 100%;
   height: 110px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 10px;
 }
 
@@ -73,17 +76,17 @@ body {
   margin: 0;
   font-size: 15px;
   font-weight: 600;
-  color: #495057;
+  color: #1d9970;
 }
 
 .dish-card.selected {
-  outline: 2px solid #ff922b;
+  border-color: #ff922b;
   background: #fff4e6;
 }
 
 .dish-card.added {
-  background: #e9ecef;
-  opacity: 0.7;
+  background: #e6fcf5;
+  opacity: 0.65;
   cursor: not-allowed;
 }
 
@@ -91,7 +94,7 @@ body {
   position: absolute;
   top: 8px;
   left: 8px;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
   font-size: 11px;
   font-weight: 600;
@@ -99,7 +102,7 @@ body {
 }
 
 .badge.added {
-  background: #adb5bd;
+  background: #74c0fc;
 }
 
 .badge.selected {
@@ -114,8 +117,8 @@ body {
 }
 
 .button-row button {
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 10px 22px;
+  border-radius: 999px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -124,22 +127,22 @@ body {
 }
 
 .button-row .secondary {
-  background: #e9ecef;
-  color: #495057;
+  background: #e6fcf5;
+  color: #1d9970;
 }
 
 .button-row .secondary:hover {
-  background: #dee2e6;
+  background: #c3fae8;
 }
 
 .button-row .primary {
-  background: linear-gradient(135deg, #ff922b, #ff6b00);
+  background: linear-gradient(135deg, #1d9970, #12b886);
   color: #fff;
 }
 
 .button-row .primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(255, 146, 43, 0.4);
+  box-shadow: 0 10px 26px rgba(18, 184, 134, 0.45);
 }
 
 .button-row .primary:disabled {

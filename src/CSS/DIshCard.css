@@ -5,9 +5,9 @@
 
 .dish-card {
   background: #ffffff;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 26px rgba(18, 184, 134, 0.22);
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
@@ -16,7 +16,7 @@
 
 .dish-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 18px 38px rgba(18, 184, 134, 0.35);
 }
 
 .dish-image-wrapper {
@@ -33,7 +33,7 @@
 }
 
 .dish-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .dish-info {
@@ -47,7 +47,7 @@
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: #343a40;
+  color: #1d9970;
 }
 
 .dish-rating {
@@ -58,8 +58,8 @@
 
 .rating-number {
   font-size: 13px;
-  font-weight: 500;
-  color: #868e96;
+  font-weight: 600;
+  color: #339af0;
 }
 
 @media (max-width: 480px) {
