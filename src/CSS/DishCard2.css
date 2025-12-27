@@ -33,7 +33,7 @@
 /* Image */
 .dish-image-wrapper {
   width: 100%;
-  height: 1000px; /* increased height */
+  height: 200px; /* increased height */
   overflow: hidden;
 }
 
