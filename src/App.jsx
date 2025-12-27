@@ -20,6 +20,7 @@ import ManageImages from './Cards/ManageImages'
 import AddDishes from './Cards/AddDishes'
 import AddReview from './Cards/AddReview'
 import DishReviewsUser from './Cards/DishReviewsUser'
+import Reviews from './Cards/Reviews'
 
 function App() {
   return (
