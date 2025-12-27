@@ -28,7 +28,7 @@ const LeaderBoard = () => {
         setCafes(page.content);
         setTotalPages(page.totalPages);
       })
-      .catch(() => navigate("/notfound"));
+      // .catch(() => navigate("/login"));
   }, [currPage]);
 
   return (
