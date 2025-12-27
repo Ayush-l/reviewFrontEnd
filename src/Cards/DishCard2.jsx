@@ -27,8 +27,8 @@ const DishCard2 = ({ src, name, rating, idDish, id ,reviews}) => {
         </div>
 
         {reviews > 0 && (
-          <button className="see-reviews-btn" onClick={goToReviews}>
-            {reviews === 1 ? "See Review" : "See Reviews"}
+          <button className="add-reviews-btn" onClick={goToReviews}>
+            Add Review
           </button>
         )}
       </div>

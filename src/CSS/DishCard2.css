@@ -75,7 +75,7 @@
 }
 
 /* Button */
-.see-reviews-btn {
+.add-reviews-btn {
   margin-top: 10px;
   padding: 9px 22px;
   border-radius: 999px;
@@ -89,12 +89,12 @@
   box-shadow: 0 6px 14px rgba(255, 146, 43, 0.35);
 }
 
-.see-reviews-btn:hover {
+.add-reviews-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 26px rgba(255, 146, 43, 0.5);
 }
 
-.see-reviews-btn:active {
+.add-reviews-btn:active {
   transform: translateY(0);
   box-shadow: 0 6px 16px rgba(255, 146, 43, 0.35);
 }
@@ -126,7 +126,7 @@
     font-size: 16px;
   }
 
-  .see-reviews-btn {
+  .add-reviews-btn {
     padding: 8px 18px;
     font-size: 12px;
   }
