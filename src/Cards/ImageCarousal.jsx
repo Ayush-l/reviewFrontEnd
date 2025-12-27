@@ -5,6 +5,7 @@ export default function ImageCarousel({
   images = [],
   autoSlide = true,
   interval = 3000,
+  height = "320px",   // 👈 configurable height
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -22,7 +23,6 @@ export default function ImageCarousel({
 
   useEffect(() => {
     if (!autoSlide || images.length <= 1) return;
-
     const slideInterval = setInterval(nextSlide, interval);
     return () => clearInterval(slideInterval);
   }, [autoSlide, interval, images.length]);
@@ -30,7 +30,7 @@ export default function ImageCarousel({
   if (images.length === 0) return null;
 
   return (
-    <div className="carousel-container">
+    <div className="carousel-container" style={{ height }}>
       <div
         className="carousel-track"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -42,19 +42,13 @@ export default function ImageCarousel({
         ))}
       </div>
 
-      {/* Arrows */}
       {images.length > 1 && (
         <>
-          <button className="arrow left" onClick={prevSlide}>
-            ❮
-          </button>
-          <button className="arrow right" onClick={nextSlide}>
-            ❯
-          </button>
+          <button className="arrow left" onClick={prevSlide}>❮</button>
+          <button className="arrow right" onClick={nextSlide}>❯</button>
         </>
       )}
 
-      {/* Dots */}
       <div className="carousel-dots">
         {images.map((_, index) => (
           <span
