@@ -25,6 +25,7 @@ const LeaderBoard = () => {
         return res.json();
       })
       .then((page) => {
+        console.log(page)
         setCafes(page.content);
         setTotalPages(page.totalPages);
       })
