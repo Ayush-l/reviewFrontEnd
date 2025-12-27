@@ -99,7 +99,7 @@ const CafeDashboard = () => {
               <img src={dish.url} alt={dish.name} />
               <h4>{dish.name}</h4>
               <StarRating rating={dish.rating!==undefined? dish.rating:0} />
-              <p>{(dish.ratingCount !== undefined)?(dish.ratingCount[0]+dish.ratingCount[1]+dish.ratingCount[2]+dish.ratingCount[3]+dish.ratingCount[4]):0} reviews</p>
+              <p>{dish.ratingCount[0]+dish.ratingCount[1]+dish.ratingCount[2]+dish.ratingCount[3]+dish.ratingCount[4]}{(dish.ratingCount[0]+dish.ratingCount[1]+dish.ratingCount[2]+dish.ratingCount[3]+dish.ratingCount[4]>1)?" reviews":" review"}</p>
               <button
                 className="reviews-btn"
                 onClick={() => navigate(`/dishreviews/${cafe.id}/${dish.name}`)}
