@@ -15,10 +15,12 @@ export default function ProductCard() {
   useEffect(() => {
     fetch(`https://reviewbackend-990d.onrender.com/getcafe/get/${id}`)
       .then((res) => {
+        console.log(res)
         if (!res.ok) throw new Error("Failed to fetch cafe");
         return res.json();
       })
       .then((data) => {
+        console.log(data)
         setProduct(data);
         setDishes(data.dishes || []);
         setRestaurantName(data.name);
@@ -52,11 +54,11 @@ export default function ProductCard() {
       <section className="dish-section">
         <h2>Popular Dishes</h2>
 
-        {dishes.length === 0 ? (
+        {(!dishes || dishes.length === 0) ? (
           <p className="no-dishes">No dishes added yet</p>
         ) : (
           <div className="dish-grid" style={{gap:"26px",gridTemplateColumns:"repeat(auto-fill, minmax(240px, 1fr))",alignContent:"space-between"}}>
-            {dishes.map((dish) => (
+            {dishes && dishes.map((dish) => (
               <DishCard2
                 key={dish.name}
                 src={dish.url}
