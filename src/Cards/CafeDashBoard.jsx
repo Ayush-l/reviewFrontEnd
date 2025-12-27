@@ -97,7 +97,7 @@ const CafeDashboard = () => {
             <div key={idx} className="dish-card">
               <img src={dish.url} alt={dish.name} />
               <h4>{dish.name}</h4>
-              <StarRating rating={dish.rating} />
+              <StarRating rating={dish.rating || 0} />
               <p>{dish.ratingCount[idx]} reviews</p>
             </div>
           ))}
