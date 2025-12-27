@@ -46,7 +46,7 @@ const DishReviews = () => {
           {reviews.map((review, idx) =>(
               <div key={idx} className="review-card">
                 <div className="review-top">
-                  <strong>{review.user.firstName+" "+review.user.lastName}</strong>
+                  <strong>{review.user!=null?review.user.firstName+" "+review.user.lastName:"Anonymous"}</strong>
                   <StarRating onRate={review.rating} readOnly />
                 </div>
                 <p className="comment">{review.review}</p>
