@@ -20,7 +20,6 @@ import ManageImages from './Cards/ManageImages'
 import AddDishes from './Cards/AddDishes'
 import AddReview from './Cards/AddReview'
 import DishReviewsUser from './Cards/DishReviewsUser'
-import Reviews from './Cards/Reviews'
 
 function App() {
   return (
@@ -29,7 +28,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product/leaderboard/:id" element={<LeaderBoard />} />
-          <Route path="/product/leaderboard/card/:id/:dishid" element={<Reviews />} />
           <Route path="/product/searchmenu" element={<SearchBar />} />
           <Route path="/card/:id" element={<ProductCard />} />
           <Route path="/dishreviews/:id" element={<DishReviewsPage />} />
