@@ -33,9 +33,10 @@
 /* Image */
 .dish-image-wrapper {
   width: 100%;
-  height: 175px;
+  height: 215px; /* increased height */
   overflow: hidden;
 }
+
 
 .dish-image-wrapper img {
   width: 100%;
@@ -118,8 +119,9 @@
 /* Responsive */
 @media (max-width: 480px) {
   .dish-image-wrapper {
-    height: 155px;
+    height: 190px; /* increased for mobile too */
   }
+
 
   .dish-name {
     font-size: 16px;
