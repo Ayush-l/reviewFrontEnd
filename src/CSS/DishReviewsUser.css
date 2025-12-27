@@ -125,9 +125,6 @@ body {
 
 /* Add review */
 .add-review-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
   padding: 12px 22px;
   border-radius: 999px;
   border: none;

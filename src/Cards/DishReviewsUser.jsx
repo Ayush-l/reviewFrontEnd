@@ -70,21 +70,21 @@ const DishReviewsUser = () => {
           <button
             disabled={page + 1 >= totalPages}
             onClick={() => setPage((p) => p + 1)}
-          >
+            >
             Next
           </button>
         </div>
       )}
-      {
-        localStorage.getItem("role")==="user"
-          &&
-        <button
-          className="add-review-btn"
-          onClick={() => navigate(`/add-review/${cafeId}/${dishName}`)}
-        >
-          Add Review
-        </button>
-      }
+    {
+      localStorage.getItem("role")==="user"
+        &&
+      <button
+        className="add-review-btn"
+        onClick={() => navigate(`/add-review/${cafeId}/${dishName}`)}
+      >
+        Add Review
+      </button>
+    }
     </div>
   );
 };
