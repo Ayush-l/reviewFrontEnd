@@ -13,10 +13,7 @@ const Login = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
@@ -82,34 +79,22 @@ const Login = () => {
 
           <div className="role-cards">
             <div
-              className={`role-card ${
-                formData.role === "user" ? "selected" : ""
-              }`}
-              onClick={() =>
-                setFormData((prev) => ({ ...prev, role: "user" }))
-              }
+              className={`role-card ${formData.role === "user" ? "selected" : ""}`}
+              onClick={() => setFormData((prev) => ({ ...prev, role: "user" }))}
             >
               <i className="fa fa-user" /> <span>User</span>
             </div>
 
             <div
-              className={`role-card ${
-                formData.role === "owner" ? "selected" : ""
-              }`}
-              onClick={() =>
-                setFormData((prev) => ({ ...prev, role: "owner" }))
-              }
+              className={`role-card ${formData.role === "owner" ? "selected" : ""}`}
+              onClick={() => setFormData((prev) => ({ ...prev, role: "owner" }))}
             >
               <i className="fa fa-store" /> <span>Owner</span>
             </div>
 
             <div
-              className={`role-card ${
-                formData.role === "admin" ? "selected" : ""
-              }`}
-              onClick={() =>
-                setFormData((prev) => ({ ...prev, role: "admin" }))
-              }
+              className={`role-card ${formData.role === "admin" ? "selected" : ""}`}
+              onClick={() => setFormData((prev) => ({ ...prev, role: "admin" }))}
             >
               <i className="fa fa-shield-alt" /> <span>Admin</span>
             </div>

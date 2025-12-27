@@ -2,13 +2,9 @@ import React from "react";
 import "../CSS/ReviewCard.css";
 
 export default function ReviewCard({ name, rating, comment, image }) {
-  // Function to render stars dynamically
   const renderStars = (count) => {
     return Array.from({ length: 5 }, (_, i) => (
-      <span
-        key={i}
-        className={`star ${i < count ? "filled" : ""}`}
-      >
+      <span key={i} className={`star ${i < count ? "filled" : ""}`}>
         ★
       </span>
     ));

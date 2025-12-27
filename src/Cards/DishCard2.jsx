@@ -11,7 +11,7 @@ const DishCard2 = ({ src, name, rating, idDish, id }) => {
   };
 
   const goToReviews = (e) => {
-    e.stopPropagation(); // 🔥 prevent card click
+    e.stopPropagation();
     console.log("Navigating to reviews for dish:", idDish, "in cafe:", id);
     navigate(`/dishreviews/${id}/${idDish}`);
   };
@@ -29,7 +29,6 @@ const DishCard2 = ({ src, name, rating, idDish, id }) => {
           <StarRating onRate={rating} readOnly />
         </div>
 
-        {/* ✅ See Reviews button */}
         <button className="see-reviews-btn" onClick={goToReviews}>
           See Reviews
         </button>

@@ -1,47 +1,80 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
 .star-rating {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   user-select: none;
 }
 
-/* Sizes */
-.star-rating.sm {
-  font-size: 1.2rem;
-}
-
-.star-rating.md {
-  font-size: 1.6rem;
-}
-
-.star-rating.lg {
-  font-size: 2.2rem;
-}
-
-/* Star */
+/* Star base */
 .star {
-  color: #d1d5db;
+  font-size: 22px;
+  color: #dee2e6;
   cursor: pointer;
-  transition: color 0.2s ease, transform 0.15s ease;
-}
-
-.star-rating:not(.readonly) .star:hover {
-  transform: scale(1.2);
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .star.filled {
-  color: #fbbf24; /* soft gold */
+  color: #ff922b;
+  text-shadow: 0 0 6px rgba(255, 146, 43, 0.6);
 }
 
-/* Read-only mode */
+.star-rating:not(.readonly) .star:hover {
+  transform: scale(1.25) rotate(-6deg);
+}
+
+/* Rating number */
+.rating-text {
+  margin-left: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+}
+
+/* Sizes */
+.star-rating.sm .star {
+  font-size: 18px;
+}
+
+.star-rating.md .star {
+  font-size: 22px;
+}
+
+.star-rating.lg .star {
+  font-size: 28px;
+}
+
+.star-rating.sm .rating-text {
+  font-size: 12px;
+}
+
+.star-rating.lg .rating-text {
+  font-size: 16px;
+}
+
+/* Readonly */
 .star-rating.readonly .star {
   cursor: default;
+  transform: none !important;
 }
 
-/* Rating text */
-.rating-text {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #6b7280;
-  margin-left: 6px;
+/* Subtle pop animation on change */
+.star.filled {
+  animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

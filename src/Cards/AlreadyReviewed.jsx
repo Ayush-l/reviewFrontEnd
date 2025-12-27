@@ -23,13 +23,9 @@ const AlreadyReviewed = () => {
         </p>
 
         <div className="button-group">
-          <button
-            className="primary-btn"
-            onClick={() => navigate(-1)}
-          >
+          <button className="primary-btn" onClick={() => navigate(-1)}>
             Go Back
           </button>
-
         </div>
       </div>
     </div>

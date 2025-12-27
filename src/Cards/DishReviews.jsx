@@ -20,9 +20,7 @@ const DishReviewsPage = () => {
   }, []);
 
   const totalReviews = (ratingCount) =>
-  Array.isArray(ratingCount)
-    ? ratingCount.reduce((a, b) => a + b, 0)
-    : 0;
+    Array.isArray(ratingCount) ? ratingCount.reduce((a, b) => a + b, 0) : 0;
 
   return (
     <div className="dish-reviews-container">
@@ -31,55 +29,53 @@ const DishReviewsPage = () => {
       <div className="dishes-grid">
         {Array.isArray(dishes) &&
           dishes.map((dish, idx) => {
-          const total = totalReviews(dish.ratingCount);
+            const total = totalReviews(dish.ratingCount);
 
-          return (
-            <div key={idx} className="dish-card">
-              <img src={dish.url} alt={dish.name} className="dish-img" />
+            return (
+              <div key={idx} className="dish-card">
+                <img src={dish.url} alt={dish.name} className="dish-img" />
 
-              <h2 className="dish-name">
-                {dish.name.charAt(0).toUpperCase() + dish.name.slice(1)}
-              </h2>
+                <h2 className="dish-name">
+                  {dish.name.charAt(0).toUpperCase() + dish.name.slice(1)}
+                </h2>
 
-              {/* Rating Bars */}
-              <div className="rating-bars">
-                {[5, 4, 3, 2, 1].map((star) => {
-                  const count = dish.ratingCount?.[star - 1] || 0;
-                  const percent = total === 0 ? 0 : (count / total) * 100;
+                <div className="rating-bars">
+                  {[5, 4, 3, 2, 1].map((star) => {
+                    const count = dish.ratingCount?.[star - 1] || 0;
+                    const percent = total === 0 ? 0 : (count / total) * 100;
 
-                  return (
-                    <div key={star} className="rating-bar-row">
-                      <span className="star-label">{star}★</span>
+                    return (
+                      <div key={star} className="rating-bar-row">
+                        <span className="star-label">{star}★</span>
 
-                      <div className="bar-track">
-                        <div
-                          className="bar-fill"
-                          style={{ width: `${percent}%` }}
-                        />
+                        <div className="bar-track">
+                          <div
+                            className="bar-fill"
+                            style={{ width: `${percent}%` }}
+                          />
+                        </div>
+
+                        <span className="count">{count}</span>
                       </div>
+                    );
+                  })}
+                </div>
 
-                      <span className="count">{count}</span>
-                    </div>
-                  );
-                })}
+                <div className="reviews-list">
+                  {!dish.reviews || dish.reviews.length === 0 ? (
+                    <p className="no-reviews">No reviews yet</p>
+                  ) : (
+                    dish.reviews.map((r, i) => (
+                      <div key={i} className="review-card">
+                        <strong>{r.user}</strong> ({r.rating}★)
+                        <p>{r.comment}</p>
+                      </div>
+                    ))
+                  )}
+                </div>
               </div>
-
-              {/* Reviews */}
-              <div className="reviews-list">
-                {!dish.reviews || dish.reviews.length === 0 ? (
-                  <p className="no-reviews">No reviews yet</p>
-                ) : (
-                  dish.reviews.map((r, i) => (
-                    <div key={i} className="review-card">
-                      <strong>{r.user}</strong> ({r.rating}★)
-                      <p>{r.comment}</p>
-                    </div>
-                  ))
-                )}
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../CSS/EditCafeName.css";
 
@@ -7,10 +7,9 @@ const EditCafeName = () => {
   const [name, setName] = useState("");
   const [originalName, setOriginalName] = useState("");
   const [loading, setLoading] = useState(false);
-  const [id,changeId]= useState("");
+  const [id, changeId] = useState("");
 
   useEffect(() => {
-    // Fetch current cafe name
     fetch("https://reviewbackend-990d.onrender.com/auth/cafe/getCafe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -20,10 +19,10 @@ const EditCafeName = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setName(data.name || "")
+        setName(data.name || "");
         setOriginalName(data.name || "");
         changeId(data.id || "");
-    });
+      });
   }, []);
 
   const handleSave = () => {
@@ -35,26 +34,17 @@ const EditCafeName = () => {
     setLoading(true);
 
     try {
-        console.log("DOING FETCH");
-      fetch(
-        "http://localhost:8080/auth/cafe/updateName",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            authToken: `Bearer ${localStorage.getItem(
-                "jwtTokenPauriWebSite"
-            )}`,
-            cafe:{
-                name:name,
-                id:id
-            },
-          }),
-        })
-        .then((res)=>{
-            if(res.ok) alert("Cafe name updated successfully");
-            else alert("Failed to update cafe name");
-        })
+      fetch("http://localhost:8080/auth/cafe/updateName", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          authToken: `Bearer ${localStorage.getItem("jwtTokenPauriWebSite")}`,
+          cafe: { name: name, id: id },
+        }),
+      }).then((res) => {
+        if (res.ok) alert("Cafe name updated successfully");
+        else alert("Failed to update cafe name");
+      });
 
       navigate("/cafedashboard");
     } catch (err) {

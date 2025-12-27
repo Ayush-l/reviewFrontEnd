@@ -2,20 +2,15 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../CSS/CafeDashboard.css";
 
-/* ⭐ Star Rating Component */
 const StarRating = ({ rating, max = 5 }) => {
   return (
     <div className="star-rating">
       {[...Array(max)].map((_, i) => {
         const value = i + 1;
 
-        if (rating >= value) {
-          return <span key={i} className="star full">★</span>;
-        } else if (rating >= value - 0.5) {
-          return <span key={i} className="star half">★</span>;
-        } else {
-          return <span key={i} className="star empty">★</span>;
-        }
+        if (rating >= value) return <span key={i} className="star full">★</span>;
+        if (rating >= value - 0.5) return <span key={i} className="star half">★</span>;
+        return <span key={i} className="star empty">★</span>;
       })}
     </div>
   );
@@ -35,12 +30,11 @@ const CafeDashboard = () => {
       }),
     })
       .then((res) => res.json())
-      .then((cafe)=>{
+      .then((cafe) => {
         setCafe(cafe);
-        console.log(cafe)
         let reviewsCount = 0;
-        for(let cafeDish of cafe.dishes){
-          for(let count of cafeDish.ratingCount) reviewsCount += count;
+        for (let cafeDish of cafe.dishes) {
+          for (let count of cafeDish.ratingCount) reviewsCount += count;
         }
         setTotalReviews(reviewsCount);
       })
@@ -49,16 +43,14 @@ const CafeDashboard = () => {
 
   if (!cafe) return null;
 
-
   return (
     <div className="dashboard-container">
       <h1 className="dashboard-title">Cafe Dashboard</h1>
 
-      {/* OVERVIEW */}
       <div className="overview-card">
         <div>
           <h2>{cafe.name}</h2>
-          <p className="address"><i className="fa-solid fa-location-dot"></i>{cafe.address}</p>
+          <p className="address">📍 {cafe.address}</p>
         </div>
 
         <div className="stats">
@@ -68,19 +60,17 @@ const CafeDashboard = () => {
           </div>
           <div className="stat">
             <span className="stat-value">{totalReviews}</span>
-            <span className="stat-label"> Total Reviews</span>
+            <span className="stat-label">Total Reviews</span>
           </div>
         </div>
       </div>
 
-      {/* ACTIONS */}
       <div className="actions-grid">
         <button onClick={() => navigate("/edit-cafe-name")}>Edit Name</button>
         <button onClick={() => navigate("/manage-images")}>Manage Images</button>
         <button onClick={() => navigate("/add-dishes")}>Add Dishes</button>
       </div>
 
-      {/* IMAGES */}
       <div className="section">
         <h3>Cafe Images</h3>
         <div className="image-grid">
@@ -90,29 +80,41 @@ const CafeDashboard = () => {
         </div>
       </div>
 
-      {/* DISHES */}
       <div className="section">
         <h3>Dishes</h3>
         <div className="dish-grid">
-          {cafe.dishes.map((dish, idx) => (
-            <div key={idx} className="dish-card">
-              <img src={dish.url} alt={dish.name} />
-              <h4>{dish.name}</h4>
-              <StarRating rating={dish.rating!==undefined? dish.rating:0} />
-              <p>{dish.ratingCount[0]+dish.ratingCount[1]+dish.ratingCount[2]+dish.ratingCount[3]+dish.ratingCount[4]}{(dish.ratingCount[0]+dish.ratingCount[1]+dish.ratingCount[2]+dish.ratingCount[3]+dish.ratingCount[4]>1)?" reviews":" review"}</p>
-              {dish.ratingCount[0]+dish.ratingCount[1]+dish.ratingCount[2]+dish.ratingCount[3]+dish.ratingCount[4]>0
-               &&
-                (<button
-                  className="reviews-btn"
-                  onClick={() => navigate(`/dishreviews/${cafe.id}/${dish.name}`)}
-                >
-                  {dish.ratingCount[0]+dish.ratingCount[1]+dish.ratingCount[2]+dish.ratingCount[3]+dish.ratingCount[4]>1?"View Reviews":"View Review"}
-              </button>)}
-            </div>
-          ))}
+          {cafe.dishes.map((dish, idx) => {
+            const count =
+              dish.ratingCount[0] +
+              dish.ratingCount[1] +
+              dish.ratingCount[2] +
+              dish.ratingCount[3] +
+              dish.ratingCount[4];
+
+            return (
+              <div key={idx} className="dish-card">
+                <img src={dish.url} alt={dish.name} />
+                <h4>{dish.name}</h4>
+                <StarRating rating={dish.rating !== undefined ? dish.rating : 0} />
+                <p>
+                  {count} {count === 1 ? "review" : "reviews"}
+                </p>
+
+                {count > 0 && (
+                  <button
+                    className="reviews-btn"
+                    onClick={() =>
+                      navigate(`/dishreviews/${cafe.id}/${dish.name}`)
+                    }
+                  >
+                    {count === 1 ? "View Review" : "View Reviews"}
+                  </button>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
-
     </div>
   );
 };

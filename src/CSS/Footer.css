@@ -1,93 +1,84 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
 .contact-section {
-  width: 100%;
-  font-family: Arial, sans-serif;
-}
-
-.contact-header {
-  text-align: center;
-  padding: 3rem 1rem;
-  position: relative;
-  border-bottom: 1px solid #ddd;
-}
-
-.contact-header .small-text {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.contact-title {
-  font-size: 2.5rem;
-  margin: 0.5rem 0;
-}
-
-.contact-title span {
-  border-bottom: 2px solid yellow;
-}
-
-.contact-btn {
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: yellow;
-  border: none;
-  font-size: 2rem;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
+  background: linear-gradient(135deg, #212529, #343a40);
+  padding: 40px 20px 30px;
+  color: #f1f3f5;
 }
 
 .contact-footer {
-  display: flex;
-  background: #1d9970;
-  color: #fff;
-  padding: 2rem;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  align-items: start;
 }
 
-.footer-col h3,
+.footer-col h3 {
+  font-size: 22px;
+  margin: 0 0 8px;
+  color: #ffffff;
+}
+
 .footer-col h4 {
-  margin-bottom: 0.8rem;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: #ff922b;
+}
+
+.footer-col p {
+  font-size: 13px;
+  margin: 6px 0;
+  color: #dee2e6;
+  line-height: 1.5;
 }
 
 .footer-col a {
-  color: #fff;
+  color: #dee2e6;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .footer-col a:hover {
-  text-decoration: underline;
+  color: #ffffff;
 }
 
+/* Social Icons */
 .social-icons {
-  margin-top: 1rem;
   display: flex;
-  gap: 1rem;
-  font-size: 1.5rem;
+  gap: 14px;
+  margin-top: 8px;
 }
 
 .social-icons a {
-  color: #fff;
-  transition: color 0.3s ease;
+  font-size: 22px;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-
-
-.footer-col{
-    display:inline-block;
-    margin-top: 40px;
+.social-icons a:hover {
+  transform: translateY(-2px);
 }
 
-.hover-pink,.hover-blue {
-  transition: color 0.3s ease;
-}
 .hover-pink:hover {
-  color:rgb(197, 16, 109);
+  color: #e64980;
 }
+
 .hover-blue:hover {
-  color:rgb(70, 70, 218);
+  color: #339af0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 32px 16px 24px;
+  }
+
+  .footer-col h3 {
+    font-size: 20px;
+  }
 }

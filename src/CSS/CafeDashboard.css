@@ -1,237 +1,206 @@
-/* ========== GLOBAL ========== */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
 body {
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #e8f3f1, #f4f7f6);
   margin: 0;
-  color: #1f2933;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
 }
 
-/* ========== CONTAINER ========== */
 .dashboard-container {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 32px;
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 24px;
 }
 
-/* ========== TITLE ========== */
 .dashboard-title {
-  text-align: center;
-  font-size: 36px;
-  font-weight: 700;
-  color: #166b50;
-  margin-bottom: 32px;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #343a40;
 }
 
-/* ========== OVERVIEW CARD ========== */
+/* Overview */
 .overview-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px 32px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #1d8f6f, #166b50);
-  color: white;
-  padding: 28px;
-  border-radius: 18px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .overview-card h2 {
   margin: 0;
-  font-size: 26px;
+  font-size: 24px;
 }
 
 .address {
+  color: #6c757d;
   margin-top: 6px;
-  font-size: 15px;
-  opacity: 0.9;
 }
 
-/* ========== STATS ========== */
 .stats {
   display: flex;
-  gap: 30px;
+  gap: 24px;
 }
 
 .stat {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .stat-value {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ff922b;
 }
 
 .stat-label {
-  font-size: 14px;
-  opacity: 0.9;
+  font-size: 12px;
+  color: #868e96;
 }
 
-/* ========== STAR RATING ========== */
-.star-rating {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-}
-
-.star {
-  font-size: 22px;
-}
-
-.star.full {
-  color: #ffd700;
-}
-
-.star.empty {
-  color: rgba(255, 255, 255, 0.35);
-}
-
-.star.half {
-  background: linear-gradient(
-    90deg,
-    #ffd700 50%,
-    rgba(255, 255, 255, 0.35) 50%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ========== ACTION BUTTONS ========== */
+/* Actions */
 .actions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
-  margin-bottom: 32px;
-  justify-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
 }
 
 .actions-grid button {
-  width: 100%;
   padding: 14px;
-  border-radius: 14px;
+  border-radius: 12px;
   border: none;
+  font-size: 14px;
   font-weight: 600;
-  background: #166b50;
-  color: white;
   cursor: pointer;
-  transition: all 0.25s ease;
+  background: linear-gradient(135deg, #ff922b, #ff6b00);
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .actions-grid button:hover {
-  background: #125840;
   transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 146, 43, 0.45);
 }
 
-/* ========== SECTIONS ========== */
+/* Sections */
 .section {
   margin-bottom: 36px;
 }
 
 .section h3 {
-  font-size: 22px;
-  color: #166b50;
+  font-size: 20px;
   margin-bottom: 16px;
+  color: #343a40;
 }
 
-/* ========== IMAGE GRID ========== */
+/* Images */
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 150px);
-  gap: 18px;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
 }
 
 .image-grid img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+  width: 100%;
   border-radius: 14px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
+  height: 120px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 }
 
-.image-grid img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
-}
-
-/* ========== DISH GRID (FINAL FIX) ========== */
+/* Dishes */
 .dish-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 260px);
-  gap: 26px;
-
-  /* ⭐ KEY LINE — centers last row */
-  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
-/* ========== DISH CARD ========== */
 .dish-card {
-  width: 260px;
-  background: #f1faf6;
-  border-radius: 16px;
-  padding: 18px;
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   text-align: center;
-  border: 1px solid #d9efe6;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .dish-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.dish-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
 }
 
 .dish-card h4 {
-  margin: 10px 0 8px;
-  color: #166b50;
-  font-size: 18px;
-}
-
-.dish-card p {
-  margin: 6px 0 0;
-  font-size: 14px;
-  color: #4b5563;
-}
-
-/* ========== REVIEWS BUTTON ========== */
-.reviews-btn {
-  display: block;
-  margin: 40px auto 0;
-  padding: 16px 30px;
+  margin: 8px 0 4px;
   font-size: 16px;
-  font-weight: 700;
+}
+
+.reviews-btn {
+  margin-top: 10px;
+  padding: 8px 14px;
   border-radius: 999px;
   border: none;
-  background: #166b50;
+  font-size: 12px;
+  font-weight: 600;
+  background: #ff922b;
   color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 .reviews-btn:hover {
-  background: #125840;
-  box-shadow: 0 8px 22px rgba(22, 107, 80, 0.4);
+  background: #ff6b00;
 }
 
-/* ========== RESPONSIVE ========== */
+/* Stars */
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 4px 0;
+}
+
+.star {
+  font-size: 18px;
+}
+
+.star.full {
+  color: #ff922b;
+}
+
+.star.half {
+  color: #ffd8a8;
+}
+
+.star.empty {
+  color: #dee2e6;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .overview-card {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
   }
 
   .stats {
-    gap: 20px;
-  }
-
-  .dashboard-title {
-    font-size: 28px;
+    align-self: stretch;
+    justify-content: space-between;
   }
 }

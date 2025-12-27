@@ -1,126 +1,135 @@
-/* ===== Signup Page Styling ===== */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
-/* Full-page gradient */
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
 .signup-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-  font-family: "Poppins", sans-serif;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-/* Card container */
 .signup-card {
-  width: 400px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 45px 40px;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-  text-align: center;
-  animation: fadeIn 1s ease;
-  backdrop-filter: blur(12px);
-  border: 2px solid rgba(29, 153, 112, 0.2);
-}
-
-/* Heading & subtitle */
-.signup-card h2 {
-  color: #1d9970;
-  margin-bottom: 8px;
-  font-weight: 700;
-}
-.signup-card p {
-  color: #666;
-  font-size: 0.95rem;
-  margin-bottom: 25px;
-}
-
-/* Input fields */
-.signup-card input[type="text"],
-.signup-card input[type="email"],
-.signup-card input[type="password"] {
-  width: 92%;
-  padding: 12px 15px;
-  margin-bottom: 15px;
-  border: 1.5px solid #d4d4d4;
-  border-radius: 10px;
-  background: #f8f9fa;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-}
-.signup-card input:focus {
-  border-color: #1d9970;
   background: #ffffff;
-  box-shadow: 0 0 10px rgba(29, 153, 112, 0.4);
-  outline: none;
+  width: 100%;
+  max-width: 440px;
+  padding: 38px 34px;
+  border-radius: 24px;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.1);
+  animation: fadeUp 0.6s ease;
+  text-align: center;
 }
 
-/* Name fields side-by-side */
+.signup-card h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  color: #343a40;
+}
+
+.signup-card p {
+  font-size: 14px;
+  color: #868e96;
+  margin: 8px 0 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Name row */
 .name-fields {
   display: flex;
   gap: 10px;
 }
 
-/* Checkbox section */
-.checkbox-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 12px 0 22px;
-  justify-content: flex-start;
-  color: #444;
-  font-size: 0.9rem;
-}
-.checkbox-container input {
-  accent-color: #1d9970;
+.name-fields input {
+  flex: 1;
 }
 
-/* Signup button */
+/* Inputs */
+input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ced4da;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+input:focus {
+  border-color: #ff922b;
+  box-shadow: 0 0 0 3px rgba(255, 146, 43, 0.2);
+}
+
+/* Button */
 .signup-btn {
-  width: 100%;
-  background-color: #1d9970;
-  color: white;
-  border: none;
+  margin-top: 10px;
   padding: 12px;
-  font-size: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.4px;
-  transition: all 0.3s ease;
-}
-.signup-btn:hover {
-  background-color: #17845e;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(29, 153, 112, 0.4);
+  background: linear-gradient(135deg, #ff922b, #ff6b00);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Login redirect text */
+.signup-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(255, 146, 43, 0.45);
+}
+
+/* Login */
 .login-text {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  color: #555;
+  margin-top: 18px;
+  font-size: 13px;
+  color: #868e96;
 }
+
 .login-link {
-  color: #1d9970;
-  font-weight: 600;
+  color: #ff922b;
+  font-weight: 500;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
+
 .login-link:hover {
-  color: #17845e;
   text-decoration: underline;
 }
 
-/* Smooth fade-in animation */
-@keyframes fadeIn {
+/* Animation */
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(-15px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .signup-card {
+    padding: 30px 24px;
+  }
+
+  .signup-card h2 {
+    font-size: 22px;
+  }
+
+  .name-fields {
+    flex-direction: column;
   }
 }

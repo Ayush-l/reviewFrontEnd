@@ -3,7 +3,7 @@ import StarRating from "./StarRating";
 import { useNavigate } from "react-router-dom";
 import "../CSS/DishCard.css";
 
-const DishCard = ({ src, name, rating, idDish ,id}) => {
+const DishCard = ({ src, name, rating, idDish, id }) => {
   const navigate = useNavigate();
 
   return (

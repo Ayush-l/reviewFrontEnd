@@ -5,20 +5,16 @@ export default function ImageCarousel({
   images = [],
   autoSlide = true,
   interval = 3000,
-  height = "320px",   // 👈 configurable height
+  height = "320px",
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === images.length - 1 ? 0 : prev + 1
-    );
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
   useEffect(() => {
@@ -44,8 +40,12 @@ export default function ImageCarousel({
 
       {images.length > 1 && (
         <>
-          <button className="arrow left" onClick={prevSlide}>❮</button>
-          <button className="arrow right" onClick={nextSlide}>❯</button>
+          <button className="arrow left" onClick={prevSlide}>
+            ❮
+          </button>
+          <button className="arrow right" onClick={nextSlide}>
+            ❯
+          </button>
         </>
       )}
 

@@ -1,150 +1,148 @@
-/* Page */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
 .manage-images-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #f2f5f4, #e9f0ee);
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  padding: 40px 20px;
 }
 
-/* Card */
 .manage-images-card {
+  background: #ffffff;
   width: 100%;
-  max-width: 720px;
-  background: white;
-  padding: 32px;
-  border-radius: 20px;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
-  animation: fadeIn 0.4s ease forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  max-width: 700px;
+  padding: 36px 34px;
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  animation: fadeUp 0.6s ease;
 }
 
 .manage-images-card h1 {
-  text-align: center;
   margin: 0;
   font-size: 26px;
-  font-weight: 700;
-  color: #166b50;
+  font-weight: 600;
+  text-align: center;
+  color: #343a40;
 }
 
 .subtitle {
   text-align: center;
-  margin: 8px 0 24px;
   font-size: 14px;
-  color: #6b7280;
+  color: #868e96;
+  margin: 8px 0 24px;
 }
 
-/* Image Grid */
+/* Grid */
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 14px;
   margin-bottom: 20px;
 }
 
 .image-box {
   position: relative;
   width: 100%;
-  height: 130px;
+  padding-top: 75%;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid #e5e7eb;
-}
-
-.image-box.new {
-  border: 2px dashed #166b50;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  animation: fadeUp 0.4s ease;
 }
 
 .image-box img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Remove Button */
+.image-box.new {
+  outline: 2px dashed #ff922b;
+  outline-offset: -4px;
+}
+
 .image-box button {
   position: absolute;
   top: 6px;
   right: 6px;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(220, 38, 38, 0.9);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
-  font-size: 16px;
+  border: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-.image-box:hover button {
-  opacity: 1;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Upload */
 .upload-btn {
-  display: block;
-  margin: 0 auto 26px;
-  padding: 12px 22px;
-  background: #e9f5f0;
-  color: #166b50;
-  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 18px;
   border-radius: 999px;
+  border: 1px dashed #ff922b;
+  background: #fff4e6;
+  color: #ff922b;
   cursor: pointer;
-  text-align: center;
-  transition: background 0.25s ease;
+  font-size: 14px;
+  transition: background 0.2s ease;
 }
 
 .upload-btn:hover {
-  background: #dff0ea;
+  background: #ffe8cc;
 }
 
 /* Buttons */
 .button-row {
   display: flex;
+  justify-content: flex-end;
   gap: 14px;
 }
 
 .button-row button {
-  flex: 1;
-  padding: 14px;
+  padding: 10px 18px;
   border-radius: 999px;
   border: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.button-row .primary {
-  background: #166b50;
+.secondary {
+  background: #e9ecef;
+  color: #495057;
+}
+
+.secondary:hover {
+  background: #dee2e6;
+}
+
+.primary {
+  background: linear-gradient(135deg, #ff922b, #ff6b00);
   color: white;
 }
 
-.button-row .primary:hover:enabled {
-  background: #125840;
-  box-shadow: 0 6px 16px rgba(22, 107, 80, 0.35);
-}
-
-.button-row .secondary {
-  background: #e5e7eb;
-  color: #374151;
-}
-
-.button-row .secondary:hover {
-  background: #d1d5db;
+.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(255, 146, 43, 0.45);
 }
 
 button:disabled {
@@ -152,10 +150,21 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
   .manage-images-card {
-    margin: 0 16px;
-    padding: 24px;
+    padding: 30px 24px;
   }
 }

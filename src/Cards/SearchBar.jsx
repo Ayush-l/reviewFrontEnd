@@ -9,35 +9,32 @@ export default function SearchBar({ placeholder = "Search cafes..." }) {
   const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
-  if (!query.trim()) {
-    setResults([]);
-    setTotalPages(0);
-    return;
-  }
+    if (!query.trim()) {
+      setResults([]);
+      setTotalPages(0);
+      return;
+    }
 
-  const delayDebounce = setTimeout(() => {
-    fetch(`https://reviewbackend-990d.onrender.com/getcafe/search/${query}/${page}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setResults(data.content || []);
-        setTotalPages(data.totalPages || 0);
-      })
-      .catch(console.error);
-  }, 400); // 👈 debounce delay (ms)
+    const delayDebounce = setTimeout(() => {
+      fetch(`https://reviewbackend-990d.onrender.com/getcafe/search/${query}/${page}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setResults(data.content || []);
+          setTotalPages(data.totalPages || 0);
+        })
+        .catch(console.error);
+    }, 400);
 
-
-  return () => clearTimeout(delayDebounce);
-}, [query, page]);
-
+    return () => clearTimeout(delayDebounce);
+  }, [query, page]);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setPage(0); // reset page on new search
+    setPage(0);
   };
 
   return (
     <div className="search-page">
-      {/* Search Bar */}
       <form className="search-bar" onSubmit={handleSearch}>
         <div className="search-input-wrapper">
           <Search className="search-icon" size={20} />
@@ -54,7 +51,6 @@ export default function SearchBar({ placeholder = "Search cafes..." }) {
         </button>
       </form>
 
-      {/* Results */}
       {query && (
         <div className="search-results-page">
           {results.length === 0 ? (
@@ -63,7 +59,11 @@ export default function SearchBar({ placeholder = "Search cafes..." }) {
             <>
               <div className="results-grid">
                 {results.map((cafe) => (
-                  <div key={cafe.id} className="result-card" onClick={() => window.location.href=`/card/${cafe.id}`}>
+                  <div
+                    key={cafe.id}
+                    className="result-card"
+                    onClick={() => (window.location.href = `/card/${cafe.id}`)}
+                  >
                     <img src={cafe.image} alt={cafe.name} />
 
                     <div className="card-content">
@@ -79,13 +79,9 @@ export default function SearchBar({ placeholder = "Search cafes..." }) {
                 ))}
               </div>
 
-              {/* Pagination */}
               {totalPages > 1 && (
                 <div className="pagination">
-                  <button
-                    disabled={page === 1}
-                    onClick={() => setPage((p) => p - 1)}
-                  >
+                  <button disabled={page === 1} onClick={() => setPage((p) => p - 1)}>
                     <ChevronLeft size={18} />
                   </button>
 
@@ -94,7 +90,7 @@ export default function SearchBar({ placeholder = "Search cafes..." }) {
                   </span>
 
                   <button
-                    disabled={page +1> totalPages}
+                    disabled={page + 1 > totalPages}
                     onClick={() => setPage((p) => p + 1)}
                   >
                     <ChevronRight size={18} />

@@ -1,72 +1,96 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
 .review-card {
-  width: 320px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.3s ease;
-  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px 22px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeUp 0.5s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .review-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
+/* Header */
 .review-header {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
 .review-avatar {
-  width: 55px;
-  height: 55px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 1rem;
-  border: 2px solid #e5e7eb;
-}
-
-.review-user-info {
-  display: flex;
-  flex-direction: column;
+  border: 2px solid #ff922b;
 }
 
 .review-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1e293b;
+  font-size: 16px;
+  margin: 0;
+  color: #343a40;
 }
 
-.review-date {
-  font-size: 0.9rem;
-  color: #64748b;
-}
-
+/* Stars */
 .review-rating {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 0.8rem;
+  margin: 6px 0 10px;
 }
 
 .star {
-  font-size: 1.3rem;
-  color: #cbd5e1;
-  transition: color 0.2s;
+  font-size: 18px;
+  color: #dee2e6;
+  margin-right: 2px;
+  transition: transform 0.2s ease;
 }
 
 .star.filled {
-  color: #facc15;
+  color: #ff922b;
 }
 
+.review-card:hover .star.filled {
+  transform: scale(1.1);
+}
+
+/* Comment */
 .review-comment {
-  color: #334155;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 14px;
+  color: #495057;
+  line-height: 1.6;
+  margin: 0;
   font-style: italic;
-  margin-top: 0.5rem;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .review-card {
+    padding: 18px 16px;
+  }
+
+  .review-name {
+    font-size: 15px;
+  }
+
+  .star {
+    font-size: 16px;
+  }
 }

@@ -11,9 +11,7 @@ const AddDishes = () => {
   const [selected, setSelected] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  /* Fetch cafe dishes + predefined dishes */
   useEffect(() => {
-    // Fetch cafe
     fetch("https://reviewbackend-990d.onrender.com/auth/cafe/getCafe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -22,15 +20,14 @@ const AddDishes = () => {
       }),
     })
       .then((res) => res.json())
-      .then((data) =>{
-        let dishes=[];
-        for(let i of data.dishes){
-            dishes.push(i.name);
+      .then((data) => {
+        let dishes = [];
+        for (let i of data.dishes) {
+          dishes.push(i.name);
         }
-        setAddedDishes(dishes)
-    });
+        setAddedDishes(dishes);
+      });
 
-    // Fetch predefined dishes
     fetch("https://reviewbackend-990d.onrender.com/auth/dish/get", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -58,23 +55,21 @@ const AddDishes = () => {
     setLoading(true);
 
     try {
-        for(let i of selected){
-            console.log(i);
-            const res = await fetch("https://reviewbackend-990d.onrender.com/auth/cafe/adddish", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                dish:{
-                    name:i
-                },
-                authToken: `Bearer ${localStorage.getItem("jwtTokenPauriWebSite")}`,
-              }),
-            });
-            if (!res.ok) throw new Error("Failed to add dishes");
-            navigate("/cafedashboard");
-        }
-
-
+      for (let i of selected) {
+        const res = await fetch(
+          "https://reviewbackend-990d.onrender.com/auth/cafe/adddish",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              dish: { name: i },
+              authToken: `Bearer ${localStorage.getItem("jwtTokenPauriWebSite")}`,
+            }),
+          }
+        );
+        if (!res.ok) throw new Error("Failed to add dishes");
+        navigate("/cafedashboard");
+      }
     } catch (err) {
       console.error(err);
       alert("Something went wrong");
@@ -87,9 +82,7 @@ const AddDishes = () => {
     <div className="add-dishes-page">
       <div className="add-dishes-card">
         <h1>Add Dishes</h1>
-        <p className="subtitle">
-          Select dishes to add to your cafe menu
-        </p>
+        <p className="subtitle">Select dishes to add to your cafe menu</p>
 
         <div className="dish-grid">
           {allDishes.map((dish, idx) => {
@@ -120,11 +113,7 @@ const AddDishes = () => {
           <button className="secondary" onClick={() => navigate(-1)}>
             Cancel
           </button>
-          <button
-            className="primary"
-            onClick={handleSave}
-            disabled={loading}
-          >
+          <button className="primary" onClick={handleSave} disabled={loading}>
             {loading ? "Saving..." : "Add Selected"}
           </button>
         </div>

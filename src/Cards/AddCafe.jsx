@@ -33,44 +33,47 @@ const AddCafe = () => {
       <form onSubmit={handleSubmit} className="cafe-form">
         <h2 className="title">Add Your Cafe</h2>
 
-        <label htmlFor="cafeName">Cafe Name:</label>
-        <input
-          type="text"
-          id="cafeName"
-          value={cafeName}
-          onChange={(e) => setCafeName(e.target.value)}
-          placeholder="Enter cafe name"
-          required
-          className="animated-input"
-        />
+        <div className="input-group">
+          <label htmlFor="cafeName">Cafe Name</label>
+          <input
+            type="text"
+            id="cafeName"
+            value={cafeName}
+            onChange={(e) => setCafeName(e.target.value)}
+            placeholder="Enter cafe name"
+            required
+          />
+        </div>
 
-        <label htmlFor="images">Upload Images (max 7):</label>
-        <input
-          type="file"
-          id="images"
-          accept="image/*"
-          multiple
-          onChange={handleImageChange}
-          className="animated-input"
-        />
+        <div className="input-group">
+          <label htmlFor="images">Upload Images (max 7)</label>
+          <input
+            type="file"
+            id="images"
+            accept="image/*"
+            multiple
+            onChange={handleImageChange}
+          />
+        </div>
 
         <div className={`image-preview ${images.length === 0 ? "no-images" : ""}`}>
-        {images.map((img, idx) => (
+          {images.length === 0 && <p className="placeholder-text">No images selected</p>}
+          {images.map((img, idx) => (
             <div key={idx} className="image-container">
-            <img src={img} alt={`preview-${idx}`} />
-            <button
+              <img src={img} alt={`preview-${idx}`} />
+              <button
                 type="button"
                 className="remove-btn"
                 onClick={() => removeImage(idx)}
-            >
+              >
                 ×
-            </button>
+              </button>
             </div>
-        ))}
+          ))}
         </div>
 
         <button type="submit" className="submit-btn">
-          Submit
+          Submit Cafe
         </button>
       </form>
     </div>

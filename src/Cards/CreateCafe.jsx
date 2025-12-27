@@ -13,21 +13,14 @@ const CreateCafe = () => {
     try {
       const res = await fetch("https://reviewbackend-990d.onrender.com/auth/cafe/create", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          cafe: {
-            name: cafeName,
-            address: address,
-          },
+          cafe: { name: cafeName, address: address },
           authToken: `Bearer ${localStorage.getItem("jwtTokenPauriWebSite")}`,
         }),
       });
 
-      if (!res.ok) {
-        throw new Error("Cafe registration failed");
-      }
+      if (!res.ok) throw new Error("Cafe registration failed");
 
       alert("Cafe Registered!");
       navigate("/cafedashboard");
@@ -46,11 +39,8 @@ const CreateCafe = () => {
         </p>
 
         <form className="cafe-form" onSubmit={handleSubmit}>
-          {/* Cafe Name */}
           <div className="form-group">
-            <label htmlFor="cafeName" className="cafe-label">
-              Cafe Name
-            </label>
+            <label htmlFor="cafeName" className="cafe-label">Cafe Name</label>
             <input
               id="cafeName"
               type="text"
@@ -62,11 +52,8 @@ const CreateCafe = () => {
             />
           </div>
 
-          {/* Cafe Address */}
           <div className="form-group">
-            <label htmlFor="cafeAddress" className="cafe-label">
-              Cafe Address
-            </label>
+            <label htmlFor="cafeAddress" className="cafe-label">Cafe Address</label>
             <textarea
               id="cafeAddress"
               className="cafe-input"

@@ -1,31 +1,42 @@
-/* Page */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
 .dish-reviews-container {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 24px;
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 24px;
 }
 
 .page-title {
-  text-align: center;
-  font-size: 34px;
-  color: #166b50;
-  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: #343a40;
 }
 
 /* Grid */
 .dishes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
 }
 
 /* Dish Card */
 .dish-card {
-  background: white;
-  border-radius: 18px;
-  padding: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  animation: fadeUp 0.5s ease;
 }
 
 .dish-img {
@@ -33,68 +44,101 @@
   height: 180px;
   object-fit: cover;
   border-radius: 14px;
+  margin-bottom: 14px;
 }
 
 .dish-name {
-  margin: 14px 0;
-  font-size: 22px;
-  color: #166b50;
-  text-align: center;
+  margin: 0 0 12px;
+  font-size: 20px;
+  color: #343a40;
 }
 
 /* Rating Bars */
 .rating-bars {
-  margin-top: 10px;
+  margin-bottom: 16px;
 }
 
 .rating-bar-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 6px;
 }
 
 .star-label {
   width: 30px;
-  font-size: 14px;
+  font-size: 13px;
+  color: #495057;
 }
 
 .bar-track {
   flex: 1;
   height: 8px;
-  background: #e5e7eb;
+  background: #e9ecef;
   border-radius: 999px;
   overflow: hidden;
 }
 
 .bar-fill {
   height: 100%;
-  background: #facc15;
+  background: linear-gradient(135deg, #ff922b, #ff6b00);
   border-radius: 999px;
-  transition: width 0.3s ease;
+  transition: width 0.4s ease;
 }
 
 .count {
   width: 24px;
   text-align: right;
-  font-size: 13px;
+  font-size: 12px;
+  color: #868e96;
 }
 
 /* Reviews */
 .reviews-list {
-  margin-top: 14px;
+  margin-top: 10px;
+  border-top: 1px solid #dee2e6;
+  padding-top: 12px;
 }
 
 .review-card {
-  background: #f9fafb;
+  background: #f8f9fa;
   border-radius: 12px;
-  padding: 10px;
+  padding: 10px 12px;
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 13px;
+  color: #495057;
+}
+
+.review-card strong {
+  color: #343a40;
 }
 
 .no-reviews {
-  font-size: 14px;
-  color: #6b7280;
   text-align: center;
+  font-size: 13px;
+  color: #adb5bd;
+  margin-top: 8px;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dishes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dish-img {
+    height: 160px;
+  }
 }

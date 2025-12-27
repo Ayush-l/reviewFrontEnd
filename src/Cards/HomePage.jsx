@@ -8,12 +8,10 @@ export default function HomePage() {
   return (
     <div className="home-container">
       <h1 className="home-title">Welcome to Our App</h1>
+      <p className="home-subtitle">Discover insights, search smarter, and explore top content</p>
+
       <div className="card-grid">
-        {/* Leaderboard Card */}
-        <div
-          className="home-card"
-          onClick={() => navigate("/product/leaderboard/1")}
-        >
+        <div className="home-card" onClick={() => navigate("/product/leaderboard/1")}>
           <img
             src="https://cdn-icons-png.flaticon.com/512/992/992700.png"
             alt="Leaderboard"
@@ -23,11 +21,7 @@ export default function HomePage() {
           <p>View the top-performing items or users.</p>
         </div>
 
-        {/* Search Menu Card */}
-        <div
-          className="home-card"
-          onClick={() => navigate("/product/SearchMenu")}
-        >
+        <div className="home-card" onClick={() => navigate("/product/SearchMenu")}>
           <img
             src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
             alt="Search"

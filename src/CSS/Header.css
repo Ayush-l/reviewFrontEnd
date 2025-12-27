@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.site-header {
+  width: 100%;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #1d9970, #12b886);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blurred circles */
+.site-header::before,
+.site-header::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+}
+
+.site-header::before {
+  width: 200px;
+  height: 200px;
+  background: #ff922b;
+  top: -50px;
+  left: -50px;
+}
+
+.site-header::after {
+  width: 250px;
+  height: 250px;
+  background: #339af0;
+  bottom: -80px;
+  right: -80px;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.header-content h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.header-content p {
+  margin-top: 10px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 40px 16px;
+  }
+
+  .header-content h1 {
+    font-size: 28px;
+  }
+
+  .header-content p {
+    font-size: 14px;
+  }
+}

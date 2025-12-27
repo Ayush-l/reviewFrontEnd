@@ -1,14 +1,15 @@
 import React from "react";
-
-
+import "../CSS/Header.css";
 
 const Header = () => {
   return (
-    <div style={{backgroundColor:"#1d9970", color:"white", padding:"20px", textAlign:"center"}}>
-        <h1>Restaurant/Cafe review Website Pauri</h1>
-        
-    </div>
-  )
-}
+    <header className="site-header">
+      <div className="header-content">
+        <h1>Restaurant / Cafe Review Website — Pauri</h1>
+        <p>Discover • Review • Share your food experience</p>
+      </div>
+    </header>
+  );
+};
 
-export default Header
+export default Header;

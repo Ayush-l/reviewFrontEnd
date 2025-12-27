@@ -1,15 +1,37 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
 .reviews-page {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 24px;
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  max-width: 720px;
+  margin: auto;
+  padding: 36px 20px 60px;
 }
 
 /* Header */
 .reviews-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
   position: relative;
+}
+
+.reviews-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #343a40;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #868e96;
+  margin-top: 4px;
 }
 
 .back-btn {
@@ -18,70 +40,68 @@
   top: 0;
   background: none;
   border: none;
-  color: #166b50;
-  font-size: 16px;
+  color: #ff922b;
+  font-size: 14px;
   cursor: pointer;
-  font-weight: 600;
-}
-
-.reviews-header h1 {
-  font-size: 34px;
-  color: #166b50;
-  margin-bottom: 6px;
-}
-
-.subtitle {
-  color: #6b7280;
+  font-weight: 500;
 }
 
 /* Reviews */
-.no-reviews {
-  text-align: center;
-  font-size: 16px;
-  color: #6b7280;
-}
-
 .reviews-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .review-card {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 18px 22px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  padding: 16px 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  animation: fadeUp 0.4s ease;
 }
 
 .review-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
+}
+
+.review-top strong {
+  font-size: 14px;
+  color: #343a40;
 }
 
 .comment {
-  font-size: 15px;
-  color: #374151;
+  font-size: 14px;
+  color: #495057;
   line-height: 1.5;
+  margin: 0;
+}
+
+.no-reviews {
+  text-align: center;
+  font-size: 14px;
+  color: #adb5bd;
+  margin-top: 20px;
 }
 
 /* Pagination */
 .pagination {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
+  gap: 12px;
   align-items: center;
-  gap: 14px;
-  margin-top: 30px;
 }
 
 .pagination button {
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 999px;
   border: none;
-  background: #e5e7eb;
-  font-weight: 600;
+  background: #e9ecef;
+  font-size: 13px;
   cursor: pointer;
 }
 
@@ -90,35 +110,53 @@
   cursor: not-allowed;
 }
 
+.pagination span {
+  font-size: 13px;
+  color: #495057;
+}
+
 /* Add review */
 .add-review-btn {
-  display: block;
-  margin: 30px auto 0;
-  padding: 14px 28px;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 12px 22px;
   border-radius: 999px;
   border: none;
-  background: #166b50;
+  font-size: 14px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ff922b, #ff6b00);
   color: white;
-  font-size: 15px;
-  font-weight: 700;
   cursor: pointer;
-  transition: all 0.25s ease;
+  box-shadow: 0 10px 24px rgba(255, 146, 43, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .add-review-btn:hover {
-  background: #125840;
-  box-shadow: 0 8px 22px rgba(22, 107, 80, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(255, 146, 43, 0.6);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
   .reviews-header h1 {
-    font-size: 26px;
+    font-size: 24px;
   }
 
-  .review-top {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
+  .add-review-btn {
+    bottom: 16px;
+    right: 16px;
   }
 }

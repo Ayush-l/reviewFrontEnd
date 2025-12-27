@@ -1,254 +1,149 @@
-/* ===== Admin Panel Styling ===== */
-
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  transition: all 0.3s ease;
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-  color: #333;
+  margin: 0;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
 }
 
-/* Container */
 .admin-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
+  padding: 32px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* Header */
 .admin-header {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 40px;
-  position: relative;
-}
-.admin-header h1 {
-  font-size: 3rem;
-  color: #1d9970;
-  font-weight: 700;
-  text-shadow: 0 3px 10px rgba(29, 153, 112, 0.3);
-}
-
-/* Logout Button */
-.logout-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 10px 20px;
-  padding: 8px 16px;
-  background-color: #1d9970;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.logout-btn:hover {
-  background-color: #17845e;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(29, 153, 112, 0.3);
-}
-
-/* Existing Dishes Section */
-.dishes-section {
-  width: 100%;
-  max-width: 1000px;
-  margin-bottom: 50px;
-}
-.dishes-section h2 {
-  color: #1d9970;
-  font-weight: 600;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-/* Dish Cards */
-.dish-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
 }
-.dish-card {
-  width: 200px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+.admin-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #ff6b6b, #e03131);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.logout-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(224, 49, 49, 0.4);
+}
+
+.dishes-section h2,
+.add-dish-section h2 {
+  margin-bottom: 16px;
+}
+
+.dish-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.dish-card {
+  background: white;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
 .dish-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 18px 35px rgba(29, 153, 112, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
 }
-.dish-image-wrapper {
+
+.dish-card img {
   width: 100%;
   height: 140px;
-  overflow: hidden;
-}
-.dish-image-wrapper img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
-}
-.dish-card:hover img {
-  transform: scale(1.1);
-}
-.dish-card img {
-  border-radius: 20px;
-}
-.dish-info {
-  padding: 12px 15px;
-  text-align: center;
-}
-.dish-info h3 {
-  color: #1d9970;
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-}
-
-/* Update Image Button */
-.update-btn {
-  display: inline-block;
-  margin-top: 8px;
-  background-color: #1d9970;
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-.update-btn:hover {
-  background-color: #17845e;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(29, 153, 112, 0.3);
-}
-.update-btn input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-/* Add New Dish Section */
-.add-dish-section {
-  width: 100%;
-  max-width: 450px;
-  margin-bottom: 50px;
-}
-.add-dish-section h2 {
-  color: #1d9970;
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-.add-dish-section form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.add-dish-section input[type="text"],
-.add-dish-section input[type="file"] {
-  padding: 12px 15px;
-  border-radius: 12px;
-  border: 1.5px solid #d4d4d4;
-  background: #f8f9fa;
-  font-size: 0.95rem;
-  outline: none;
-}
-.add-dish-section input:focus {
-  border-color: #1d9970;
-  background: #ffffff;
-  box-shadow: 0 0 10px rgba(29, 153, 112, 0.4);
-}
-.add-dish-section button {
-  padding: 14px 0;
-  background-color: #1d9970;
-  color: white;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  letter-spacing: 0.4px;
-  font-size: 1rem;
-  box-shadow: 0 6px 15px rgba(29, 153, 112, 0.3);
-}
-.add-dish-section button:hover {
-  background-color: #17845e;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(29, 153, 112, 0.35);
-}
-.dish-card {
-  position: relative; /* required for positioning delete button */
+  border-radius: 10px;
 }
 
 .delete-btn {
   position: absolute;
   top: 8px;
-  right: 8px;           /* 🔥 TOP RIGHT */
-  background-color: red;
-  color: white;
+  right: 8px;
+  background: rgba(0,0,0,0.6);
   border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
   cursor: pointer;
-  font-size: 12px;
-  font-weight: bold;
-  z-index: 999;
+}
+
+.dish-info {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 4px;
+  margin-top: 10px;
 }
 
-.delete-btn:hover {
-  background-color: #cc0000;
+.update-btn {
+  background: #ff922b;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .dish-list {
-    justify-content: center;
-  }
-  .logout-btn {
-    position: static;
-    margin: 0 auto 20px auto;
-    display: block;
-  }
+.update-btn input {
+  display: none;
 }
 
-/* Image preview under form */
+.add-dish-section {
+  margin-top: 40px;
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.add-dish-section form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.add-dish-section input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  font-size: 14px;
+}
+
+.add-dish-section button {
+  background: linear-gradient(135deg, #ff922b, #ff6b00);
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 .image-preview-box {
-  margin-top: 14px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .image-preview-box img {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 2px solid #1d9970;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.image-preview-box p {
-  margin-top: 6px;
-  font-size: 14px;
-  color: #555;
+  width: 100px;
+  border-radius: 10px;
+  margin-bottom: 6px;
 }

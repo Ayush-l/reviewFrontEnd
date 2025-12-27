@@ -1,28 +1,107 @@
-/* Page background */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
 .edit-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #f2f5f4, #e9f0ee);
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  padding: 40px 20px;
 }
 
-/* Card */
 .edit-card {
+  background: #ffffff;
   width: 100%;
   max-width: 420px;
-  background: white;
-  padding: 32px 30px;
+  padding: 36px 34px;
   border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.4s ease forwards;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  animation: fadeUp 0.6s ease;
 }
 
-@keyframes fadeIn {
+.edit-card h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  color: #343a40;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #868e96;
+  margin: 8px 0 24px;
+}
+
+.edit-card input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ced4da;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+  margin-bottom: 22px;
+}
+
+.edit-card input:focus {
+  border-color: #ff922b;
+  box-shadow: 0 0 0 3px rgba(255, 146, 43, 0.2);
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.button-row button {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-row .secondary {
+  background: #e9ecef;
+  color: #495057;
+}
+
+.button-row .secondary:hover {
+  background: #dee2e6;
+}
+
+.button-row .primary {
+  background: linear-gradient(135deg, #ff922b, #ff6b00);
+  color: #fff;
+}
+
+.button-row .primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(255, 146, 43, 0.45);
+}
+
+.button-row button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -30,89 +109,12 @@
   }
 }
 
-/* Headings */
-.edit-card h1 {
-  margin: 0;
-  font-size: 26px;
-  font-weight: 700;
-  color: #166b50;
-  text-align: center;
-}
-
-.subtitle {
-  margin: 8px 0 22px;
-  font-size: 14px;
-  color: #6b7280;
-  text-align: center;
-}
-
-/* Input */
-.edit-card input {
-  width: 100%;
-  padding: 14px 16px;
-  font-size: 16px;
-  border-radius: 14px;
-  border: 1px solid #d1d5db;
-  outline: none;
-  transition: all 0.25s ease;
-}
-
-.edit-card input:focus {
-  border-color: #166b50;
-  box-shadow: 0 0 0 3px rgba(22, 107, 80, 0.2);
-}
-
-/* Buttons */
-.button-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 26px;
-}
-
-.button-row button {
-  flex: 1;
-  padding: 14px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-/* Primary */
-.button-row .primary {
-  background: #166b50;
-  color: white;
-}
-
-.button-row .primary:hover:enabled {
-  background: #125840;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(22, 107, 80, 0.35);
-}
-
-/* Secondary */
-.button-row .secondary {
-  background: #e5e7eb;
-  color: #374151;
-}
-
-.button-row .secondary:hover {
-  background: #d1d5db;
-}
-
-/* Disabled */
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* Responsive */
 @media (max-width: 480px) {
   .edit-card {
-    margin: 0 16px;
-    padding: 26px 22px;
+    padding: 30px 24px;
+  }
+
+  .edit-card h1 {
+    font-size: 22px;
   }
 }

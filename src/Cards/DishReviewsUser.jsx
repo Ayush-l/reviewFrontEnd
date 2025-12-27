@@ -16,11 +16,11 @@ const DishReviews = () => {
       `https://reviewbackend-990d.onrender.com/getcafe/reviews/${dishName}/${cafeId}/${page}`
     )
       .then((res) => res.json())
-      .then((res)=>{
-        setReviews(res.content)
-        setTotalPages(res.totalPages)
-        if(page >= res.totalPages && res.totalPages > 0){
-          setPage(res.totalPages - 1)
+      .then((res) => {
+        setReviews(res.content);
+        setTotalPages(res.totalPages);
+        if (page >= res.totalPages && res.totalPages > 0) {
+          setPage(res.totalPages - 1);
         }
       })
       .catch(console.error);
@@ -28,41 +28,37 @@ const DishReviews = () => {
 
   return (
     <div className="reviews-page">
-      {/* HEADER */}
       <div className="reviews-header">
         <button className="back-btn" onClick={() => navigate(-1)}>
           ← Back
         </button>
-
         <h1>{dishName}</h1>
         <p className="subtitle">Customer Reviews</p>
       </div>
 
-      {/* REVIEWS LIST */}
       {reviews.length === 0 ? (
         <p className="no-reviews">No reviews yet</p>
       ) : (
         <div className="reviews-list">
-          {reviews.map((review, idx) =>(
-              <div key={idx} className="review-card">
-                <div className="review-top">
-                  <strong>{review.user!=null?review.user.firstName+" "+review.user.lastName:"Anonymous"}</strong>
-                  <StarRating onRate={review.rating} readOnly />
-                </div>
-                <p className="comment">{review.review}</p>
+          {reviews.map((review, idx) => (
+            <div key={idx} className="review-card">
+              <div className="review-top">
+                <strong>
+                  {review.user != null
+                    ? review.user.firstName + " " + review.user.lastName
+                    : "Anonymous"}
+                </strong>
+                <StarRating onRate={review.rating} readOnly />
               </div>
-            )
-          )}
+              <p className="comment">{review.review}</p>
+            </div>
+          ))}
         </div>
       )}
 
-      {/* PAGINATION */}
       {totalPages > 1 && (
         <div className="pagination">
-          <button
-            disabled={page === 0}
-            onClick={() => setPage((p) => p - 1)}
-          >
+          <button disabled={page === 0} onClick={() => setPage((p) => p - 1)}>
             Prev
           </button>
           <span>
@@ -77,13 +73,10 @@ const DishReviews = () => {
         </div>
       )}
 
-      {/* ADD REVIEW */}
       {localStorage.getItem("role") === "user" && (
         <button
           className="add-review-btn"
-          onClick={() =>
-            navigate(`/add-review/${cafeId}/${dishName}`)
-          }
+          onClick={() => navigate(`/add-review/${cafeId}/${dishName}`)}
         >
           Add Review
         </button>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import imageUpload from "../imageUpload"
+import imageUpload from "../imageUpload";
 import "../CSS/ManageImages.css";
 
 const MAX_IMAGES = 7;
@@ -11,9 +11,8 @@ const ManageImages = () => {
   const [existingImages, setExistingImages] = useState([]);
   const [newImages, setNewImages] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [id,changeId]=useState("");
+  const [id, changeId] = useState("");
 
-  /* Fetch cafe images */
   useEffect(() => {
     fetch("https://reviewbackend-990d.onrender.com/auth/cafe/getCafe", {
       method: "POST",
@@ -23,14 +22,13 @@ const ManageImages = () => {
       }),
     })
       .then((res) => res.json())
-      .then((data) =>{
-        setExistingImages(data.images || [])
+      .then((data) => {
+        setExistingImages(data.images || []);
         changeId(data.id || "");
       })
       .catch(() => navigate("/cafedashboard"));
   }, []);
 
-  /* Add new images */
   const handleAddImages = (e) => {
     const files = Array.from(e.target.files);
 
@@ -47,7 +45,6 @@ const ManageImages = () => {
     setNewImages((prev) => [...prev, ...previews]);
   };
 
-  /* Remove image */
   const removeExistingImage = (idx) => {
     setExistingImages(existingImages.filter((_, i) => i !== idx));
   };
@@ -56,18 +53,16 @@ const ManageImages = () => {
     setNewImages(newImages.filter((_, i) => i !== idx));
   };
 
-  /* Save changes */
   const handleSave = async () => {
     setLoading(true);
 
     try {
-      // Upload new images (you already have imageUpload util)
       const uploadedUrls = [];
       for (const img of newImages) {
         const url = await imageUpload(img.file);
         uploadedUrls.push(url);
       }
-      console.log(uploadedUrls);
+
       const updatedImages = [...existingImages, ...uploadedUrls];
 
       const res = await fetch(
@@ -75,15 +70,10 @@ const ManageImages = () => {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(
-            {
-                authToken: `Bearer ${localStorage.getItem("jwtTokenPauriWebSite")}`,
-                cafe:{
-                    images: updatedImages,
-                    id:id
-                }
-            }
-        ),
+          body: JSON.stringify({
+            authToken: `Bearer ${localStorage.getItem("jwtTokenPauriWebSite")}`,
+            cafe: { images: updatedImages, id: id },
+          }),
         }
       );
 
@@ -102,9 +92,7 @@ const ManageImages = () => {
     <div className="manage-images-page">
       <div className="manage-images-card">
         <h1>Manage Cafe Images</h1>
-        <p className="subtitle">
-          Add or remove images that represent your cafe
-        </p>
+        <p className="subtitle">Add or remove images that represent your cafe</p>
 
         <div className="image-grid">
           {existingImages.map((img, idx) => (
@@ -137,11 +125,7 @@ const ManageImages = () => {
           <button className="secondary" onClick={() => navigate(-1)}>
             Cancel
           </button>
-          <button
-            className="primary"
-            onClick={handleSave}
-            disabled={loading}
-          >
+          <button className="primary" onClick={handleSave} disabled={loading}>
             {loading ? "Saving..." : "Save Changes"}
           </button>
         </div>
