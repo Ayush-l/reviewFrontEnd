@@ -11,6 +11,10 @@ const DishCard2 = ({ src, name, rating, idDish, id ,reviews}) => {
     e.stopPropagation();
     navigate(`/dishreviews/${id}/${idDish}`);
   };
+  const goToAddReviews = (e) => {
+    e.stopPropagation();
+    navigate(`/add-review/${id}/${idDish}`);
+  };
 
   return (
     
@@ -25,9 +29,19 @@ const DishCard2 = ({ src, name, rating, idDish, id ,reviews}) => {
         <div className="dish-rating">
           <StarRating onRate={rating} readOnly />
         </div>
-        <button className="add-reviews-btn" onClick={goToReviews}>
-          See Review{reviews>1?"s":""}
-        </button>
+        {
+          reviews>0?
+          (
+            <button className="add-reviews-btn" onClick={goToReviews}>
+            See Review{reviews>1?"s":""}
+            </button>
+          ):
+          (
+            <button className="add-reviews-btn" onClick={goToAddReviews}>
+            Add Review
+            </button>
+          )
+        }
       </div>
     </div>
   );
