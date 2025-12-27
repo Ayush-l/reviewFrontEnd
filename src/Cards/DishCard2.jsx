@@ -26,7 +26,7 @@ const DishCard2 = ({ src, name, rating, idDish, id ,reviews}) => {
           <StarRating onRate={rating} readOnly />
         </div>
         <button className="add-reviews-btn" onClick={goToReviews}>
-          Add Review
+          See Review{reviews>1?"s":""}
         </button>
       </div>
     </div>
