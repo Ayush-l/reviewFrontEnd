@@ -16,7 +16,7 @@ const DishReviewsPage = () => {
     })
       .then((res) => res.json())
       .then((data) => setDishes(data.dishes || []))
-      .catch(() => navigate("/cafeDashBoard"));
+      .catch(() => navigate("/cafedashboard"));
   }, []);
 
   const totalReviews = (ratingCount = []) =>

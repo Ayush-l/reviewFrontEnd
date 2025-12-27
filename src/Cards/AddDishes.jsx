@@ -71,7 +71,7 @@ const AddDishes = () => {
               }),
             });
             if (!res.ok) throw new Error("Failed to add dishes");
-            navigate("/cafeDashBoard");
+            navigate("/cafedashboard");
         }
 
 

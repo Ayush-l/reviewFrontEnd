@@ -27,7 +27,7 @@ const ManageImages = () => {
         setExistingImages(data.images || [])
         changeId(data.id || "");
       })
-      .catch(() => navigate("/cafeDashBoard"));
+      .catch(() => navigate("/cafedashboard"));
   }, []);
 
   /* Add new images */
@@ -89,7 +89,7 @@ const ManageImages = () => {
 
       if (!res.ok) throw new Error("Update failed");
 
-      navigate("/cafeDashBoard");
+      navigate("/cafedashboard");
     } catch (err) {
       console.error(err);
       alert("Failed to update images");

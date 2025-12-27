@@ -13,7 +13,7 @@ const DishCard2 = ({ src, name, rating, idDish, id }) => {
   const goToReviews = (e) => {
     e.stopPropagation(); // 🔥 prevent card click
     console.log("Navigating to reviews for dish:", idDish, "in cafe:", id);
-    navigate(`/dishReviews/${id}/${idDish}`);
+    navigate(`/dishreviews/${id}/${idDish}`);
   };
 
   return (

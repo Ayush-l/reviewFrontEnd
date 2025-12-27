@@ -56,7 +56,7 @@ const EditCafeName = () => {
             else alert("Failed to update cafe name");
         })
 
-      navigate("/cafeDashBoard");
+      navigate("/cafedashboard");
     } catch (err) {
       console.error(err);
       alert("Failed to update cafe name");

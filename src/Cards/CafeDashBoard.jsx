@@ -43,7 +43,7 @@ const CafeDashboard = () => {
         }
         setTotalReviews(reviewsCount);
       })
-      .catch(() => navigate("/createCafe"));
+      .catch(() => navigate("/createcafe"));
   }, []);
 
   if (!cafe) return null;
@@ -106,7 +106,7 @@ const CafeDashboard = () => {
 
       <button
         className="reviews-btn"
-        onClick={() => navigate(`/dishReviews/${cafe.id}`)}
+        onClick={() => navigate(`/dishreviews/${cafe.id}`)}
       >
         View Reviews
       </button>

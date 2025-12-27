@@ -30,7 +30,7 @@ const CreateCafe = () => {
       }
 
       alert("Cafe Registered!");
-      navigate("/cafeDashBoard");
+      navigate("/cafedashboard");
     } catch (err) {
       console.error(err);
       alert("Something went wrong while registering the cafe.");

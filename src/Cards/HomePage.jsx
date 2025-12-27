@@ -12,7 +12,7 @@ export default function HomePage() {
         {/* Leaderboard Card */}
         <div
           className="home-card"
-          onClick={() => navigate("/product/LeaderBoard/1")}
+          onClick={() => navigate("/product/leaderboard/1")}
         >
           <img
             src="https://cdn-icons-png.flaticon.com/512/992/992700.png"

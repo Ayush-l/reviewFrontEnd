@@ -41,8 +41,8 @@ const Login = () => {
         localStorage.setItem("jwtTokenPauriWebSite", data);
         localStorage.setItem("role", formData.role);
 
-        if (formData.role === "owner") navigate("/cafeDashBoard");
-        else if (formData.role === "admin") navigate("/adminPanel");
+        if (formData.role === "owner") navigate("/cafedashboard");
+        else if (formData.role === "admin") navigate("/adminpanel");
         else navigate("/");
       })
       .catch((err) => {
