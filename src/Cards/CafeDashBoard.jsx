@@ -97,7 +97,7 @@ const CafeDashboard = () => {
             <div key={idx} className="dish-card">
               <img src={dish.url} alt={dish.name} />
               <h4>{dish.name}</h4>
-              <StarRating rating={dish.rating || 0} />
+              <StarRating rating={dish.rating!==undefined? dish.rating:0} />
               {/* <p>{(dish.ratingCount !== undefined)?dish.ratingCount[idx][0]+dish.ratingCount[idx][1]+dish.ratingCount[idx][2]+dish.ratingCount[idx][3]+dish.ratingCount[idx][4]:0} reviews</p>
               <button
                 className="reviews-btn"
