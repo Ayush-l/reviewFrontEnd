@@ -19,15 +19,18 @@ const DishReviewsPage = () => {
       .catch(() => navigate("/cafedashboard"));
   }, []);
 
-  const totalReviews = (ratingCount = []) =>
-    ratingCount.reduce((a, b) => a + b, 0);
+  const totalReviews = (ratingCount) =>
+  Array.isArray(ratingCount)
+    ? ratingCount.reduce((a, b) => a + b, 0)
+    : 0;
 
   return (
     <div className="dish-reviews-container">
       <h1 className="page-title">Dish Reviews</h1>
 
       <div className="dishes-grid">
-        {dishes && dishes.map((dish, idx) => {
+        {Array.isArray(dishes) &&
+          dishes.map((dish, idx) => {
           const total = totalReviews(dish.ratingCount);
 
           return (
