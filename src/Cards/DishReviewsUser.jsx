@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../CSS/DishReviewsUser.css";
 import StarRating from "./StarRating";
 
-const DishReviews = () => {
+const DishReviewsUser = () => {
   const { cafeId, dishName } = useParams();
   const navigate = useNavigate();
 
@@ -88,4 +88,4 @@ const DishReviews = () => {
   );
 };
 
-export default DishReviews;
+export default DishReviewsUser;

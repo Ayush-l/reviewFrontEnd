@@ -6,9 +6,6 @@ import "../CSS/DishCard2.css";
 const DishCard2 = ({ src, name, rating, idDish, id ,reviews}) => {
   const navigate = useNavigate();
 
-  const goToDish = () => {
-    navigate(`${idDish}`);
-  };
 
   const goToReviews = (e) => {
     e.stopPropagation();
@@ -17,7 +14,7 @@ const DishCard2 = ({ src, name, rating, idDish, id ,reviews}) => {
 
   return (
     
-    <div className="dish-card" onClick={goToDish}>
+    <div className="dish-card">
       <div className="dish-image-wrapper">
         <img src={src} alt={name} />
       </div>
