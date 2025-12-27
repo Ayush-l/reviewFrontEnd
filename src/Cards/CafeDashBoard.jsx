@@ -98,18 +98,18 @@ const CafeDashboard = () => {
               <img src={dish.url} alt={dish.name} />
               <h4>{dish.name}</h4>
               <StarRating rating={dish.rating || 0} />
-              <p>{dish.ratingCount[idx]} reviews</p>
+              <p>{dish.ratingCount[idx][0]+dish.ratingCount[idx][1]+dish.ratingCount[idx][2]+dish.ratingCount[idx][3]+dish.ratingCount[idx][4]} reviews</p>
+              <button
+                className="reviews-btn"
+                onClick={() => navigate(`/dishreviews/${cafe.id}/${dish.name}`)}
+              >
+                View Reviews
+              </button>
             </div>
           ))}
         </div>
       </div>
 
-      <button
-        className="reviews-btn"
-        onClick={() => navigate(`/dishreviews/${cafe.id}`)}
-      >
-        View Reviews
-      </button>
     </div>
   );
 };
