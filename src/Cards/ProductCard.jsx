@@ -30,6 +30,7 @@ export default function ProductCard() {
       });
   }, [id]);
 
+  console.log(product)
   if (!product) return null;
 
   return (
