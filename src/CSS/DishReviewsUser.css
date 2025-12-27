@@ -63,7 +63,7 @@ body {
   border-radius: 16px;
   box-shadow: 0 10px 24px rgba(18, 184, 134, 0.22);
   animation: fadeUp 0.4s ease;
-  width:100%;
+  width:100% !important;
 }
 
 .review-top {
