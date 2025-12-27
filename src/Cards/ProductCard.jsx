@@ -42,7 +42,7 @@ export default function ProductCard() {
           <p className="address">{product.address}</p>
 
           <div className="rating-row">
-            <StarRating onRate={product.cafeRating} />
+            <StarRating onRate={product.cafeRating || 0} />
           </div>
         </div>
 
